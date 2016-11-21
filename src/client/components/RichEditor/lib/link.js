@@ -49,7 +49,6 @@ export function confirmLink(editorState, selection, url) {
 
 export function removeLink(editorState, selection) {
   if (!selection.isCollapsed()) {
-    console.log('notCollapsed')
     let nextEditorState = RichUtils.toggleLink(editorState, selection, null);
     return nextEditorState;
   }

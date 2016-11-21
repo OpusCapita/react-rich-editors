@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import s from './RichEditorToolbar.module.less';
-import HotKeyButton from 'jcatalog-react-ui-buttons/lib/HotKeyButton';
+import TitledButton from 'jcatalog-react-ui-buttons/lib/TitledButton';
 
 export default
 class RichEditorToolbar extends Component {
@@ -19,8 +19,8 @@ class RichEditorToolbar extends Component {
       <div className={s.richEditorToolbar}>
         {features.map((feature, index) => (
           <div className={s.featureButton} key={index}>
-            <HotKeyButton
-              isActive={activeFeatures.find(activeFeature => activeFeature === feature.id)}
+            <TitledButton
+              isActive={Boolean(activeFeatures.find(activeFeature => activeFeature === feature.id))}
               onClick={() => onGetFeatureHandler(feature)}
               svg={feature.svg}
               svgSize="24px"

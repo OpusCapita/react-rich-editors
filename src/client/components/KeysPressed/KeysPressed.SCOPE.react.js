@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { showroomScopeDecorator } from 'jcatalog-showroom';
-import HotKeyButton from 'jcatalog-react-ui-buttons/lib/HotKeyButton';
+import Button from 'jcatalog-react-ui-buttons/lib/Button';
 import keycode from 'keycode';
 
 @showroomScopeDecorator
@@ -57,7 +57,7 @@ class KeysPressedSCOPE extends Component {
 
     return (
       <div>
-        <HotKeyButton
+        <Button
           label="Clear Log"
           paper={true}
           onClick={this.handleClearLog.bind(this)}

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
-import HotKeyButton from 'jcatalog-react-ui-buttons/lib/Button';
+import Button from 'jcatalog-react-ui-buttons/lib/Button';
 import ShortcutContainer from '../ShortcutContainer';
 let cancelIcon = require('!!raw!jcatalog-svg-icons/lib/cancel.svg');
 
@@ -100,7 +100,7 @@ class RichEditorLinkInputForm extends Component {
           </div>
           <div className={s.buttonsBlock}>
             <div className={s.applyButton}>
-              <HotKeyButton
+              <Button
                 label={applyLabel}
                 bgColor="#66bb6a"
                 color="#fff"
@@ -109,7 +109,7 @@ class RichEditorLinkInputForm extends Component {
               />
           </div>
             <div className={s.cancelButton}>
-              <HotKeyButton
+              <Button
                 label={cancelLabel}
                 bgColor="#e70"
                 color="#fff"
