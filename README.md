@@ -5,7 +5,11 @@ Package also provide a few preconfigured components.
 
 ## Code Example
 
+```
+import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
+...
 <RichEditor />
+```
 
 ## Demo
 
