@@ -1,3 +1,5 @@
+import { CompositeDecorator } from 'draft-js';
+
 export const Link = (props) => {
   const {url} = props.contentState.getEntity(props.entityKey).getData();
   return (
