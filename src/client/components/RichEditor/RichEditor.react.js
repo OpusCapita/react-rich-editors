@@ -7,8 +7,8 @@ import {
   Modifier,
   RichUtils
 } from 'draft-js';
-import { findLinkEntities, confirmLink, Link } from './lib/link';
-import { getPlainTextOfSelection } from './lib/selection';
+import { findLinkEntities, confirmLink, removeLink, getLinkUrl, Link } from './lib/link';
+import { getPlainTextOfSelection, replaceTextOfSelection } from './lib/selection';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
 import defaultFeatures from './lib/default-features';
@@ -61,12 +61,14 @@ class RichEditor extends Component {
     let { editorState } = this.state;
     let nextIsShowLinkInputForm = (typeof show !== 'undefined') ? show : !this.state.isShowLinkInputForm;
     this.setState({ isShowLinkInputForm: nextIsShowLinkInputForm });
-    let text = getPlainTextOfSelection(editorState);
+    let selectionState = editorState.getSelection();
+    let text = getPlainTextOfSelection(editorState, selectionState);
+    let url = getLinkUrl(editorState, selectionState) || '';
     if(nextIsShowLinkInputForm) {
       this._linkInputForm.clearValues();
       this._linkInputForm.focus();
       this._linkInputForm.setText(text);
-      this._linkInputForm.setUrl();
+      this._linkInputForm.setUrl(url);
     }
   }
 
@@ -101,7 +103,7 @@ class RichEditor extends Component {
   }
 
   getCurrentBlockType() {
-    let editorState = this.state.editorState;
+    let { editorState } = this.state;
     let selection = editorState.getSelection();
     return editorState
       .getCurrentContent()
@@ -115,6 +117,10 @@ class RichEditor extends Component {
   }
 
   handleLinkChange(selection, url) {
+    let { editorState } = this.state;
+    if(!url) {
+      removeLink();
+    }
     let prevEditorState = this.state.editorState;
     let nextEditorState = confirmLink(prevEditorState, selection, url);
     this.setState({ editorState: nextEditorState });
@@ -165,11 +171,6 @@ class RichEditor extends Component {
     );
   }
 }
-
-//
-// function createValueFromString(markup: string, format: string, options?: ImportOptions): EditorValue {
-//   return EditorValue.createFromString(markup, format, decorator, options);
-// }
 
 RichEditor.propTypes = {
   autoFocus: PropTypes.bool,

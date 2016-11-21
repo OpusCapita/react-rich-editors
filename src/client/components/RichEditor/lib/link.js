@@ -2,10 +2,9 @@ import { CompositeDecorator, Entity, RichUtils } from 'draft-js';
 import { Map } from 'immutable';
 
 export const Link = (props) => {
-  console.log('props:', props);
-  let {url} = Entity.get(props.entityKey).getData();
+  let { url } = Entity.get(props.entityKey).getData();
   return (
-    <a href={url} style={{ color: '#303' }}>
+    <a href={url} title={url} style={{ textDecoration: 'underiline' }}>
       {props.children}
     </a>
   );
@@ -24,18 +23,17 @@ export function findLinkEntities(contentBlock, callback) {
   );
 }
 
-export function promptForLink(editorState) {
-  let selection = editorState.getSelection();
+export function getLinkUrl(editorState, selection) {
   if (!selection.isCollapsed()) {
     let contentState = editorState.getCurrentContent();
-    let startKey = editorState.getSelection().getStartKey();
-    let startOffset = editorState.getSelection().getStartOffset();
+    let startKey = selection.getStartKey();
+    let startOffset = selection.getStartOffset();
     let blockWithLinkAtBeginning = contentState.getBlockForKey(startKey);
     let linkKey = blockWithLinkAtBeginning.getEntityAt(startOffset);
 
     let url = '';
     if (linkKey) {
-      let linkInstance = contentState.getEntity(linkKey);
+      let linkInstance = Entity.get(linkKey);
       url = linkInstance.getData().url;
     }
     return url;
