@@ -74,7 +74,7 @@ class RichEditor extends Component {
 
   onChange(editorState) {
     this.props.onChange && this.props.onChange(editorState.getCurrentContent(), editorState);
-    this.setState({ editorState });
+    return this.setState({ editorState });
   }
 
   getFeatureHandler(feature) {
@@ -119,11 +119,12 @@ class RichEditor extends Component {
   handleLinkChange(selection, url) {
     let { editorState } = this.state;
     if(!url) {
-      removeLink();
+      let nextEditorState = removeLink(editorState, selection);
+      return this.setState({ editorState: nextEditorState });
     }
     let prevEditorState = this.state.editorState;
     let nextEditorState = confirmLink(prevEditorState, selection, url);
-    this.setState({ editorState: nextEditorState });
+    return this.setState({ editorState: nextEditorState });
   }
 
   render() {
