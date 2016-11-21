@@ -18,8 +18,8 @@ class RichEditorLinkInputForm extends Component {
     this._input.focus();
   }
 
-  clearUrlValue() {
-    this.setState({ url: '' });
+  clearValues() {
+    this.setState({ text: '', url: '' });
   }
 
   handleInputChange(name, event) {
@@ -43,6 +43,13 @@ class RichEditorLinkInputForm extends Component {
     }
   }
 
+  handleSubmit() {
+    let { onSubmit, onHide } = this.props;
+    let { text, url } = this.state;
+    onSubmit(text, url);
+    onHide();
+  }
+
   render() {
     let {
       applyLabel,
@@ -51,7 +58,7 @@ class RichEditorLinkInputForm extends Component {
       linkLabel,
       textLabel,
       onHide,
-      onLink
+      onSubmit
     } = this.props;
 
     let {
@@ -90,7 +97,7 @@ class RichEditorLinkInputForm extends Component {
                 bgColor="#66bb6a"
                 color="#fff"
                 paper={true}
-                onClick={onLink}
+                onClick={this.handleSubmit.bind(this)}
               />
           </div>
             <div className={s.cancelButton}>
@@ -114,7 +121,7 @@ RichEditorLinkInputForm.propTypes = {
   defaultUrl: PropTypes.string,
   linkLabel: PropTypes.string,
   onHide: PropTypes.func,
-  onLink: PropTypes.func,
+  onSubmit: PropTypes.func,
   submitLabel: PropTypes.string,
   text: PropTypes.string,
   textLabel: PropTypes.string,
@@ -126,7 +133,7 @@ RichEditorLinkInputForm.defaultProps = {
   defaultUrl: 'http://',
   linkLabel: 'Paste or type a link',
   onHide: () => {},
-  onLink: () => {},
+  onSubmit: (text, link) => {},
   text: '',
   textLabel: 'Insert a text',
   url: ''

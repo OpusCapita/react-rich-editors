@@ -7,11 +7,11 @@ import {
   Modifier,
   RichUtils
 } from 'draft-js';
-import { decorator } from './link-decorator';
+import { decorator as linkDecorator } from './lib/link';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
-import defaultFeatures from './default-features';
-import featureTypes from './feature-types';
+import defaultFeatures from './lib/default-features';
+import featureTypes from './lib/feature-types';
 import { Motion, spring } from 'react-motion';
 
 export default
@@ -19,7 +19,7 @@ class RichEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: EditorState.createEmpty(),
+      editorState: EditorState.createEmpty(linkDecorator),
       isShowLinkInputForm: false,
       urlValue: ''
     };
@@ -57,7 +57,7 @@ class RichEditor extends Component {
     let nextIsShowLinkInputForm = (typeof show !== 'undefined') ? show : !this.state.isShowLinkInputForm;
     this.setState({ isShowLinkInputForm: nextIsShowLinkInputForm });
     if(nextIsShowLinkInputForm) {
-      this._linkInputForm.clearUrlValue();
+      this._linkInputForm.clearValues();
       this._linkInputForm.focus();
     }
   }
@@ -121,6 +121,7 @@ class RichEditor extends Component {
           <RichEditorLinkInputForm
             ref={ref => (this._linkInputForm = ref)}
             onHide={() => this.toggleShowLinkInputForm.call(this, false)}
+            onSubmit={(text, url) => {console.log('onSubmit', text, url)}}
           />
         </div>}
       </Motion>
