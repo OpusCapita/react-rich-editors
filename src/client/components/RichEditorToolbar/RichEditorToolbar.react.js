@@ -24,6 +24,7 @@ class RichEditorToolbar extends Component {
               onClick={() => onGetFeatureHandler(feature)}
               svg={feature.svg}
               svgSize="24px"
+              color="#333"
               bgColor="rgba(255, 255, 255, 0)"
               title={feature.label}
             />

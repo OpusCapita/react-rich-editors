@@ -1,18 +1,39 @@
 .richEditor {
-
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  overflow: hidden;
 }
 
 .richEditor :global(.public-DraftEditorPlaceholder-root) {
   opacity: 0.6;
 }
 
+.toolbarPrompt {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.promptArea {
+  overflow: hidden;
+}
+
 .toolbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 8px 6px 4px 6px;
+  position: relative;
 }
 
 .textArea {
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: none;
   padding: 8px 12px;
 }

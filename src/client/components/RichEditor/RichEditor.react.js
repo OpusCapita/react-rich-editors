@@ -7,10 +7,12 @@ import {
   Modifier,
   RichUtils
 } from 'draft-js';
+import { decorator } from './link-decorator';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
 import defaultFeatures from './default-features';
 import featureTypes from './feature-types';
+import { Motion, spring } from 'react-motion';
 
 export default
 class RichEditor extends Component {
@@ -18,7 +20,8 @@ class RichEditor extends Component {
     super(props);
     this.state = {
       editorState: EditorState.createEmpty(),
-      isShowLinkInputForm: false
+      isShowLinkInputForm: false,
+      urlValue: ''
     };
   }
 
@@ -50,8 +53,13 @@ class RichEditor extends Component {
     );
   }
 
-  toggleShowLinkInputForm() {
-    this.setState({ isShowLinkInputForm: !this.state.isShowLinkInputForm });
+  toggleShowLinkInputForm(show) {
+    let nextIsShowLinkInputForm = (typeof show !== 'undefined') ? show : !this.state.isShowLinkInputForm;
+    this.setState({ isShowLinkInputForm: nextIsShowLinkInputForm });
+    if(nextIsShowLinkInputForm) {
+      this._linkInputForm.clearUrlValue();
+      this._linkInputForm.focus();
+    }
   }
 
   onChange(editorState) {
@@ -104,11 +112,19 @@ class RichEditor extends Component {
 
     let activeFeatures = this.getActiveFeatures(features);
 
-    let linkInputForm = isShowLinkInputForm ? (
-      <div className={s.linkInputForm}>
-        <RichEditorLinkInputForm />
-      </div>
-    ) : null;
+    let linkInputForm = (
+      <Motion
+        defaultStyle={{ x: -100 }}
+        style={{ x: isShowLinkInputForm ? spring(0) : spring(-100) }}
+      >{interpolatedStyle =>
+        <div className={s.toolbarPrompt} style={{ transform: `translate(${interpolatedStyle.x}%, 0)` }}>
+          <RichEditorLinkInputForm
+            ref={ref => (this._linkInputForm = ref)}
+            onHide={() => this.toggleShowLinkInputForm.call(this, false)}
+          />
+        </div>}
+      </Motion>
+    )
 
     return (
       <div className={s.richEditor}>
@@ -118,7 +134,9 @@ class RichEditor extends Component {
             features={features}
             onGetFeatureHandler={this.getFeatureHandler.bind(this)}
             editorState={editorState}
+            isPromptOpened={false}
           />
+          {linkInputForm}
         </div>
         <div className={s.textArea} onClick={this.focus.bind(this)}>
           <Editor
@@ -128,11 +146,16 @@ class RichEditor extends Component {
             placeholder={placeholder}
           />
         </div>
-        {linkInputForm}
       </div>
     );
   }
 }
+
+// const decorator = new CompositeDecorator([LinkDecorator]);
+//
+// function createValueFromString(markup: string, format: string, options?: ImportOptions): EditorValue {
+//   return EditorValue.createFromString(markup, format, decorator, options);
+// }
 
 RichEditor.propTypes = {
   autoFocus: PropTypes.bool,

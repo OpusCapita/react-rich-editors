@@ -1,15 +1,12 @@
 ### Synopsis
 
-RichEditor is 
+ShortcutContainer is 
 *Write here a short introduction and/or overview that explains **what** component is.*
 
 ### Code Example
 
 ```
-<RichEditor
-  autoFocus={true}
-  placeholder="Enter email body..."
-/>
+<ShortcutContainer />
 ```
 
 ### Props Reference
@@ -25,7 +22,7 @@ RichEditor is
 
 ### Component Name
 
-RichEditor
+ShortcutContainer
 
 ### License
 

@@ -35,7 +35,7 @@ module.exports = [
   },
   {
     id: 'numeric-list',
-    label: 'Numeric list',
+    label: 'Numeric List',
     style: 'ordered-list-item',
     type: types.BLOCK_TYPE,
     svg: require('!!raw!jcatalog-svg-icons/lib/format_list_numbered.svg'),
@@ -51,7 +51,7 @@ module.exports = [
   },
   {
     id: 'insert-link',
-    label: 'Link',
+    label: 'Insert link',
     style: 'unstyled',
     type: types.INSERT_LINK,
     svg: require('!!raw!jcatalog-svg-icons/lib/insert_link.svg'),
