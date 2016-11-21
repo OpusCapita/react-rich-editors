@@ -1,31 +1,28 @@
-import { CompositeDecorator } from 'draft-js';
+import { CompositeDecorator, Entity, RichUtils } from 'draft-js';
+import { Map } from 'immutable';
 
 export const Link = (props) => {
-  let {url} = props.contentState.getEntity(props.entityKey).getData();
+  console.log('props:', props);
+  let {url} = Entity.get(props.entityKey).getData();
   return (
-    <a href={url} style={styles.link}>
+    <a href={url} style={{ color: '#303' }}>
       {props.children}
     </a>
   );
 };
 
-export function findLinkEntities(contentState, contentBlock, callback) {
+export function findLinkEntities(contentBlock, callback) {
   contentBlock.findEntityRanges(
     character => {
       let entityKey = character.getEntity();
       return (
         entityKey !== null &&
-        contentState.getEntity(entityKey).getType() === 'LINK'
+        Entity.get(entityKey).getType() === 'LINK'
       );
     },
     callback
   );
 }
-
-export const decorator = new CompositeDecorator([{
-  strategy: findLinkEntities,
-  component: Link,
-}]);
 
 export function promptForLink(editorState) {
   let selection = editorState.getSelection();
@@ -45,20 +42,11 @@ export function promptForLink(editorState) {
   }
 }
 
-export function confirmLink(editorState, url) {
+export function confirmLink(editorState, selection, url) {
   let contentState = editorState.getCurrentContent();
-  let contentStateWithEntity = contentState.createEntity('LINK', 'MUTABLE', url);
-  let entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-  let newEditorState = EditorState.set(editorState, { currentContent: contentStateWithEntity });
-  let nextEditorState = {
-    editorState: RichUtils.toggleLink(
-      newEditorState,
-      newEditorState.getSelection(),
-      entityKey
-    ),
-    showURLInput: false,
-    urlValue: ''
-  };
+  let entityKey = Entity.create('LINK', 'MUTABLE', { url });
+  let nextEditorState = RichUtils.toggleLink(editorState, selection, entityKey);
+  return nextEditorState;
 }
 
 export function removeLink(editorState) {

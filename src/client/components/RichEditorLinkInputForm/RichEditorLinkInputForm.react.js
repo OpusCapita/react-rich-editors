@@ -22,6 +22,10 @@ class RichEditorLinkInputForm extends Component {
     this.setState({ text: '', url: '' });
   }
 
+  setText(text) {
+    this.setState({ text });
+  }
+
   handleInputChange(name, event) {
     let nextValue = event.target.value;
     this.setState({ [name]: nextValue });

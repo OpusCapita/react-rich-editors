@@ -7,7 +7,8 @@ import {
   Modifier,
   RichUtils
 } from 'draft-js';
-import { decorator as linkDecorator } from './lib/link';
+import { findLinkEntities, confirmLink, Link } from './lib/link';
+import { getPlainTextOfSelection } from './lib/selection';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
 import defaultFeatures from './lib/default-features';
@@ -18,10 +19,13 @@ export default
 class RichEditor extends Component {
   constructor(props) {
     super(props);
+    let decorator = new CompositeDecorator([{
+      strategy: findLinkEntities,
+      component: Link
+    }]);
     this.state = {
-      editorState: EditorState.createEmpty(linkDecorator),
-      isShowLinkInputForm: false,
-      urlValue: ''
+      editorState: EditorState.createEmpty(decorator),
+      isShowLinkInputForm: false
     };
   }
 
@@ -54,11 +58,15 @@ class RichEditor extends Component {
   }
 
   toggleShowLinkInputForm(show) {
+    let { editorState } = this.state;
     let nextIsShowLinkInputForm = (typeof show !== 'undefined') ? show : !this.state.isShowLinkInputForm;
     this.setState({ isShowLinkInputForm: nextIsShowLinkInputForm });
+    let text = getPlainTextOfSelection(editorState);
     if(nextIsShowLinkInputForm) {
       this._linkInputForm.clearValues();
       this._linkInputForm.focus();
+      this._linkInputForm.setText(text);
+      this._linkInputForm.setUrl();
     }
   }
 
@@ -106,6 +114,12 @@ class RichEditor extends Component {
     return editorState.getCurrentInlineStyle();
   }
 
+  handleLinkChange(selection, url) {
+    let prevEditorState = this.state.editorState;
+    let nextEditorState = confirmLink(prevEditorState, selection, url);
+    this.setState({ editorState: nextEditorState });
+  }
+
   render() {
     let { features, placeholder } = this.props;
     let { editorState, isShowLinkInputForm } = this.state;
@@ -121,7 +135,7 @@ class RichEditor extends Component {
           <RichEditorLinkInputForm
             ref={ref => (this._linkInputForm = ref)}
             onHide={() => this.toggleShowLinkInputForm.call(this, false)}
-            onSubmit={(text, url) => {console.log('onSubmit', text, url)}}
+            onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), url)}
           />
         </div>}
       </Motion>
@@ -152,7 +166,6 @@ class RichEditor extends Component {
   }
 }
 
-// const decorator = new CompositeDecorator([LinkDecorator]);
 //
 // function createValueFromString(markup: string, format: string, options?: ImportOptions): EditorValue {
 //   return EditorValue.createFromString(markup, format, decorator, options);

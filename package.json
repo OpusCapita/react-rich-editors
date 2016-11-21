@@ -62,10 +62,10 @@
     "write-file-webpack-plugin": "^3.3.0"
   },
   "dependencies": {
-    "draft-js": "^0.9.1",
-    "draft-js-export-html": "^0.5.1",
-    "immutable": "^3.8.1",
-    "jcatalog-react-ui-buttons": "^0.0.18",
+    "draft-js": "0.9.1",
+    "draft-js-export-html": "0.5.1",
+    "immutable": "3.8.1",
+    "jcatalog-react-ui-buttons": "0.0.18",
     "jcatalog-react-ui-svg": "0.0.11",
     "jcatalog-svg-icons": "0.0.4",
     "keycode": "2.1.7",
