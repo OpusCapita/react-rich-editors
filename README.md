@@ -15,6 +15,7 @@ import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
 
 ## Demo
 
+* Ensure that you have access to private npm modules
 * Clone this repository
 * Run `npm install`
 * Run `npm start`
