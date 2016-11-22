@@ -1,14 +1,14 @@
 ### Synopsis
 
-RichEditor is 
-*Write here a short introduction and/or overview that explains **what** component is.*
+EmailRichEditor
 
 ### Code Example
 
 ```
-<RichEditor
-  autoFocus={true}
-  placeholder="Enter some text..."
+<EmailRichEditor
+  placeholder="Enter email body..."
+  onChange={_scope.handleHtml.bind(_scope)}
+  defaultHtml="<div>Html <a href='http://google.com'>Link</a></div>"
 />
 ```
 
@@ -16,16 +16,14 @@ RichEditor is
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
-| demoProp | string | Write a description of the property |
+| onChange | func | Write a description of the property |
 
 ### Contributors
-*Write here contributor names/contacts*
-
-[GIT REPOSITORY](http://buildserver.jcatalog.com/gitweb/?p=js-react-application-generator.git)
+Kirill Volkovich
 
 ### Component Name
 
-RichEditor
+EmailRichEditor
 
 ### License
 

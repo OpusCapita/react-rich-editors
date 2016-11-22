@@ -7,22 +7,19 @@ import {
   Modifier,
   RichUtils
 } from 'draft-js';
-import { findLinkEntities, confirmLink, removeLink, getLinkUrl, Link } from './lib/link';
+import { confirmLink, removeLink, getLinkUrl } from './lib/link';
 import { getPlainTextOfSelection, replaceTextOfSelection } from './lib/selection';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
 import defaultFeatures from './lib/default-features';
 import featureTypes from './lib/feature-types';
 import { Motion, spring } from 'react-motion';
+import decorator from './lib/decorator';
 
 export default
 class RichEditor extends Component {
   constructor(props) {
     super(props);
-    let decorator = new CompositeDecorator([{
-      strategy: findLinkEntities,
-      component: Link
-    }]);
     this.state = {
       editorState: EditorState.createEmpty(decorator),
       isShowLinkInputForm: false
@@ -43,6 +40,10 @@ class RichEditor extends Component {
 
   getCurrentSelection() {
     return this.state.editorState.getSelection();
+  }
+
+  setEditorState(editorState) {
+    this.setState({ editorState });
   }
 
   toggleBlockType(blockType) {
@@ -73,7 +74,8 @@ class RichEditor extends Component {
   }
 
   onChange(editorState) {
-    this.props.onChange && this.props.onChange(editorState.getCurrentContent(), editorState);
+    let plainText = editorState.getCurrentContent().getPlainText();
+    this.props.onChange && this.props.onChange(plainText, editorState);
     return this.setState({ editorState });
   }
 
