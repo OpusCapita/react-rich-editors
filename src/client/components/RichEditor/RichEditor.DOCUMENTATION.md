@@ -5,10 +5,12 @@
 ### Code Example
 
 ```
-<RichEditor
-  autoFocus={true}
-  placeholder="Enter some text..."
-/>
+<div style={{ height: '300px' }}>
+  <RichEditor
+    autoFocus={true}
+    placeholder="Enter some text..."
+  />
+</div>
 ```
 
 ### Props Reference

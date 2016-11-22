@@ -5,11 +5,13 @@ EmailRichEditor is a wrapper around **RichEditor** component, preconfigured for 
 ### Code Example
 
 ```
-<EmailRichEditor
-  placeholder="Enter email body..."
-  onChange={_scope.handleHtml.bind(_scope)}
-  defaultHtml="<div>Html <a href='http://google.com'>Link</a></div>"
-/>
+<div style={{ height: '300px' }}>
+  <EmailRichEditor
+    placeholder="Enter email body..."
+    onChange={_scope.handleHtml.bind(_scope)}
+    defaultHtml="<div>Html <a href='http://google.com'>Link</a></div>"
+  />
+</div>
 ```
 
 ### Props Reference

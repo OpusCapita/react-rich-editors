@@ -6,7 +6,9 @@ RichEditorLinkInputForm is
 ### Code Example
 
 ```
-<RichEditorLinkInputForm />
+<RichEditorLinkInputForm 
+  
+/>
 ```
 
 ### Props Reference
