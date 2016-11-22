@@ -15,7 +15,14 @@ RichEditorLinkInputForm is
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
-| demoProp | string | Write a description of the property |
+| translations | shape | Tranlsations map. See 	appropriate section. |
+
+### Translations
+* applyButton
+* cancelButton
+* urlInputPlaceholder
+* textInputPlaceholder
+
 
 ### Contributors
 *Write here contributor names/contacts*

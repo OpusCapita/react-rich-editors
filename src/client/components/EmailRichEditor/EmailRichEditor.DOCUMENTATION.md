@@ -5,11 +5,11 @@
 ### Code Example
 
 ```
-<div style={{ height: '300px' }}>
+<div style={{ height: '320px' }}>
   <EmailRichEditor
     placeholder="Enter email body..."
     onChange={_scope.handleHtml.bind(_scope)}
-    defaultHtml="<div>Html <a href='http://google.com'>Link</a></div>"
+    defaultHtml={`<p><strong>Bold</strong> <em>Italic</em> <ins><em>Underlined&nbsp;</em></ins></p> <blockquote><em><strong>Quote</strong></em></blockquote> <p><br></p> <ul> <li><em><strong>Unordered list item</strong></em></li> <li><em>Unordered list item</em></li> </ul> <p><br></p> <ol> <li><strong>Ordered list item</strong></li> <li><em>Ordered list item</em></li> </ol> <p><a href="http://google.com/"><strong>g</strong></a><a href="http://google.com/"><strong>oogle.com (link)</strong></a></p>`}
   />
 </div>
 ```
