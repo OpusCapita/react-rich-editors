@@ -146,14 +146,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var nextDefaultHtml = this.props.defaultHtml;
+	      var nextDefaultHtml = this.props.value;
 	      this.setDefaultHtml(nextDefaultHtml);
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
-	      var prevDefaultHtml = this.props.defaultHtml;
-	      var nextDefaultHtml = nextProps.defaultHtml;
+	      var prevDefaultHtml = this.props.value;
+	      var nextDefaultHtml = nextProps.value;
 	      if (prevDefaultHtml !== nextDefaultHtml) {
 	        this.setDefaultHtml(nextDefaultHtml);
 	      }
@@ -208,11 +208,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	EmailRichEditor.propTypes = {
 	  features: _react.PropTypes.array,
 	  onChange: _react.PropTypes.func,
-	  defaultHtml: _react.PropTypes.string
+	  value: _react.PropTypes.string
 	};
 	EmailRichEditor.defaultProps = {
 	  features: [],
-	  defaultHtml: ''
+	  value: ''
 	};
 
 /***/ },
@@ -256,10 +256,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".EmailRichEditor-module__emailRichEditor__0-0-2_2bZ {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  height: 100%;\n  min-height: inherit;\n}\n", ""]);
 
 	// exports
-
+	exports.locals = {
+		"emailRichEditor": "EmailRichEditor-module__emailRichEditor__0-0-2_2bZ"
+	};
 
 /***/ },
 /* 7 */
@@ -899,7 +901,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, ".RichEditor-module__richEditor__0-0-2_2ob {\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  font-size: 16px;\n  overflow: hidden;\n}\n.RichEditor-module__richEditor__0-0-2_2ob .public-DraftEditorPlaceholder-root {\n  opacity: 0.6;\n}\n.RichEditor-module__toolbarPrompt__0-0-2_3hf {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background-color: #fff;\n  z-index: 10;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 0 12px;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  overflow: hidden;\n}\n.RichEditor-module__promptArea__0-0-2_3XX {\n  overflow: hidden;\n}\n.RichEditor-module__toolbar__0-0-2_1sw {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 8px 6px 4px 6px;\n  position: relative;\n}\n.RichEditor-module__textArea__0-0-2_F3X {\n  border-top: none;\n  padding: 8px 12px;\n}\n.RichEditor-module__textArea__0-0-2_F3X blockquote {\n  margin-bottom: 6px;\n}\n", ""]);
+	exports.push([module.id, ".RichEditor-module__richEditor__0-0-2_2ob {\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  font-size: 16px;\n  height: 100%;\n  min-height: inherit;\n  overflow: hidden;\n}\n.RichEditor-module__richEditor__0-0-2_2ob .public-DraftEditorPlaceholder-root {\n  opacity: 0.6;\n}\n.RichEditor-module__toolbarPrompt__0-0-2_3hf {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background-color: #fff;\n  z-index: 10;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 0 12px;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  overflow: hidden;\n}\n.RichEditor-module__promptArea__0-0-2_3XX {\n  overflow: hidden;\n}\n.RichEditor-module__toolbar__0-0-2_1sw {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 8px 6px 4px 6px;\n  position: relative;\n}\n.RichEditor-module__textArea__0-0-2_F3X {\n  border-top: none;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  min-height: 0;\n  overflow: auto;\n  padding: 8px 12px;\n}\n.RichEditor-module__textArea__0-0-2_F3X blockquote {\n  margin-bottom: 6px;\n}\n", ""]);
 
 	// exports
 	exports.locals = {
@@ -20162,13 +20164,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 
 	      var _props2 = this.props,
-	          applyLabel = _props2.applyLabel,
-	          cancelLabel = _props2.cancelLabel,
 	          defaultUrl = _props2.defaultUrl,
-	          linkLabel = _props2.linkLabel,
-	          textLabel = _props2.textLabel,
 	          onHide = _props2.onHide,
 	          onSubmit = _props2.onSubmit;
+
+	      var t = this.props.translations;
+
 	      var _state2 = this.state,
 	          isUrlInputFocused = _state2.isUrlInputFocused,
 	          text = _state2.text,
@@ -20192,7 +20193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return _this2._input = _ref;
 	              },
 	              className: _RichEditorLinkInputFormModule2.default.input,
-	              placeholder: textLabel,
+	              placeholder: t.textInputPlaceholder,
 	              onChange: function onChange(event) {
 	                return _this2.handleInputChange.call(_this2, 'text', event);
 	              },
@@ -20200,7 +20201,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }),
 	            _react2.default.createElement('input', {
 	              className: _RichEditorLinkInputFormModule2.default.input,
-	              placeholder: linkLabel,
+	              placeholder: t.urlInputPlaceholder,
 	              onChange: function onChange(event) {
 	                return _this2.handleInputChange.call(_this2, 'url', event);
 	              },
@@ -20218,7 +20219,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              _react2.default.createElement(
 	                'button',
 	                { className: 'btn btn-primary', onClick: this.handleSubmit.bind(this) },
-	                applyLabel
+	                t.applyButton
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -20227,7 +20228,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              _react2.default.createElement(
 	                'button',
 	                { className: 'btn btn-default', onClick: onHide },
-	                cancelLabel
+	                t.cancelButton
 	              )
 	            )
 	          )
@@ -20243,25 +20244,33 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	RichEditorLinkInputForm.propTypes = {
-	  applyLabel: _react.PropTypes.string,
+	  translations: _react.PropTypes.shape({
+	    applyButton: _react.PropTypes.string,
+	    cancelButton: _react.PropTypes.string,
+	    urlInputPlaceholder: _react.PropTypes.string,
+	    textInputPlaceholder: _react.PropTypes.string
+	  }),
 	  defaultUrl: _react.PropTypes.string,
-	  linkLabel: _react.PropTypes.string,
 	  onHide: _react.PropTypes.func,
 	  onSubmit: _react.PropTypes.func,
-	  submitLabel: _react.PropTypes.string,
 	  text: _react.PropTypes.string,
-	  textLabel: _react.PropTypes.string,
+	  preconfiguredLinks: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	    text: _react.PropTypes.string,
+	    url: _react.PropTypes.string
+	  })),
 	  url: _react.PropTypes.string
 	};
 	RichEditorLinkInputForm.defaultProps = {
-	  applyLabel: 'Apply',
-	  cancelLabel: 'Cancel',
+	  translations: {
+	    applyButton: 'Apply',
+	    cancelButton: 'Cancel',
+	    urlInputPlaceholder: 'Paste or type a link',
+	    textInputPlaceholder: 'Insert a text'
+	  },
 	  defaultUrl: 'http://',
-	  linkLabel: 'Paste or type a link',
 	  onHide: function onHide() {},
 	  onSubmit: function onSubmit(text, link) {},
 	  text: '',
-	  textLabel: 'Insert a text',
 	  url: ''
 	};
 

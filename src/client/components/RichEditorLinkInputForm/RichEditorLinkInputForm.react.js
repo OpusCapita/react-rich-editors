@@ -124,6 +124,10 @@ RichEditorLinkInputForm.propTypes = {
   onHide: PropTypes.func,
   onSubmit: PropTypes.func,
   text: PropTypes.string,
+  preconfiguredLinks: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string,
+    url: PropTypes.string
+  })),
   url: PropTypes.string
 };
 RichEditorLinkInputForm.defaultProps = {

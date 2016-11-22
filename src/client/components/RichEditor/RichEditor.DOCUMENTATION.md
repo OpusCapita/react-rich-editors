@@ -1,6 +1,6 @@
 ### Synopsis
 
-**RichEditor** is a base rich editor component written using [draf-js framework](https://facebook.github.io/draft-js).
+**RichEditor** is a base rich editor component written using [draft-js framework](https://facebook.github.io/draft-js).
 
 ### Code Example
 

@@ -15,13 +15,23 @@ RichEditorLinkInputForm is
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
-| translations | shape | Tranlsations map. See 	appropriate section. |
+| translations | shape | Tranlsations map. See 	appropriate section |
+| preconfiguredLinks | shape | You can provide a variants. See appropriate section |
 
-### Translations
+#### Translations
 * applyButton
 * cancelButton
 * urlInputPlaceholder
 * textInputPlaceholder
+
+#### Preconfigured links
+##### Format:
+```
+[
+  { text: 'Test installation', url: 'http://test.opuscapita.com' },
+  { text: 'Production installation', url: 'http://prod.opuscapita.com' }
+]
+```
 
 
 ### Contributors
