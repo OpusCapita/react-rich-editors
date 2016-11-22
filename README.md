@@ -1,5 +1,7 @@
 ## Synopsis
 
+![js-react-rich-editors-demo](https://raw.githubusercontent.com/OpusCapitaBES/js-react-rich-editors/master/demo.gif?token=AWiQTA958R_RhkZhS7zv7WRswvx4KHwuks5YPbKewA%3D%3D)
+
 React component for easy build rich-editors. 
 Package also provide a few preconfigured components.
 
@@ -12,7 +14,6 @@ import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
 ```
 
 ## Demo
-![js-react-rich-editors-demo](https://raw.githubusercontent.com/OpusCapitaBES/js-react-rich-editors/master/demo.gif?token=AWiQTA958R_RhkZhS7zv7WRswvx4KHwuks5YPbKewA%3D%3D)
 
 * Clone this repository
 * Run `npm install`
