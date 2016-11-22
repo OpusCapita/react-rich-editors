@@ -1,6 +1,6 @@
 ### Synopsis
 
-EmailRichEditor is a wrapper around **RichEditor** component, preconfigured for edit emails.
+**EmailRichEditor** is a wrapper around **RichEditor** component, preconfigured for edit emails.
 
 ### Code Example
 
