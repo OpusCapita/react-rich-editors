@@ -1,12 +1,15 @@
 ## Synopsis
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is.
-This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+React component for easy build rich-editors. 
+Package also provide a few preconfigured components.
 
 ## Code Example
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example.
- Make sure the API you are showing off is obvious, and that your code is short and concise.
+```
+import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
+...
+<RichEditor />
+```
 
 ## Demo
 
@@ -21,12 +24,12 @@ For medium size to larger projects it is important to at least provide a link to
 
 ## Tests
 
-Describe and show how to run the tests with code examples.
+There is no tests now.
 
 ## Contributors
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+Kirill Volkovich, Alexey Sergeev
 
 ## License
 
-A short snippet describing the license (MIT, Apache, etc.)
+OpusCapita 2016
