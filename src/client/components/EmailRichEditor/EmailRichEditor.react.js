@@ -17,13 +17,13 @@ class EmailRichEditor extends Component {
   }
 
   componentDidMount() {
-    let nextDefaultHtml = this.props.defaultHtml;
+    let nextDefaultHtml = this.props.value;
     this.setDefaultHtml(nextDefaultHtml);
   }
 
   componentWillReceiveProps(nextProps) {
-    let prevDefaultHtml = this.props.defaultHtml;
-    let nextDefaultHtml = nextProps.defaultHtml;
+    let prevDefaultHtml = this.props.value;
+    let nextDefaultHtml = nextProps.value;
     if(prevDefaultHtml !== nextDefaultHtml) {
       this.setDefaultHtml(nextDefaultHtml);
     }
@@ -62,9 +62,9 @@ class EmailRichEditor extends Component {
 EmailRichEditor.propTypes = {
   features: PropTypes.array,
   onChange: PropTypes.func,
-  defaultHtml: PropTypes.string
+  value: PropTypes.string
 };
 EmailRichEditor.defaultProps = {
   features: [],
-  defaultHtml: ''
+  value: ''
 };
