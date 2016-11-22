@@ -3,7 +3,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 let config = require('./webpack.development.config.js');
-config.entry = path.resolve(path.join(__dirname, 'src', 'client', 'index.js'));
+config.entry = {
+  'index': path.resolve(__dirname, './src/client/index.js'),
+  'grails-index': path.resolve(__dirname, './src/grails-specific/grails-index.js')
+}
 delete config.watch;
 delete config.devtool;
 delete config.output.publicPath;
@@ -13,15 +16,15 @@ config.plugins = config.plugins.concat([
       'NODE_ENV': '"production"'
     }
   }),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      warnings: false,
-      screw_ie8: true
-    },
-    comments: false
-  })
+  // new webpack.optimize.DedupePlugin(),
+  // new webpack.optimize.OccurenceOrderPlugin(),
+  // new webpack.optimize.UglifyJsPlugin({
+  //   compressor: {
+  //     warnings: false,
+  //     screw_ie8: true
+  //   },
+  //   comments: false
+  // })
 ]);
 
 module.exports = config;

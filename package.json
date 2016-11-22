@@ -3,11 +3,16 @@
   "version": "0.0.2",
   "description": "Start write new project with no effort.",
   "scripts": {
-    "build": "rimraf lib && babel --copy-files --no-babelrc --presets es2015,stage-0,react --plugins transform-decorators-legacy --ignore __tests__,*.spec.js,demo src/client/components --out-dir lib && webpack --config webpack.production.config",
+    "build": "rimraf lib && babel --copy-files --no-babelrc --presets es2015,stage-0,react --plugins transform-decorators-legacy --ignore __tests__,*.spec.js,demo src/client/components --out-dir lib && webpack --progress --config webpack.production.config",
     "link-mode": "webpack --watch --config ./webpack.link.config.js",
     "lint": "eslint src/client",
     "prepublish": "npm run build",
-    "start": "node www/index"
+    "start": "node www/index",
+    "grails-plugin-build": "rimraf build && webpack --config ./webpack.production.config.js --profile --colors --progress",
+    "grails-plugin-package": "npm run grails-plugin-build && grails-plugin-package",
+    "grails-plugin-install": "npm run grails-plugin-package && grails-plugin-install",
+    "grails-plugin-deploy": "npm run grails-plugin-package && grails-plugin-deploy",
+    "grails-plugin-deploy-release": "npm run grails-plugin-package -- --release && grails-plugin-deploy --release"
   },
   "author": {
     "name": "Kirill Volkovich",
@@ -49,11 +54,12 @@
     "eslint-plugin-react": "5.1.1",
     "express": "4.13.4",
     "file-loader": "0.9.0",
+    "jcatalog-dev-tools": "^2.0.15-SNAPSHOT.20161003T064012.880Z",
     "jcatalog-showroom": "1.0.3",
     "jcatalog-showroom-server": "1.0.1",
     "json-loader": "0.5.4",
-    "less-loader": "2.2.2",
     "less": "2.3.1",
+    "less-loader": "2.2.2",
     "nodemon": "1.9.1",
     "postcss-loader": "0.13.0",
     "raw-loader": "0.5.1",
@@ -74,5 +80,14 @@
     "jcatalog-svg-icons": "0.0.4",
     "keycode": "2.1.7",
     "react-motion": "0.4.5"
+  },
+  "grails": {
+    "resources": {
+      "react-rich-editors": {
+        "files": {
+          "index.js": "js/grails-index.js"
+        }
+      }
+    }
   }
 }
