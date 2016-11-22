@@ -35,8 +35,6 @@ class EmailRichEditor extends Component {
 
   setDefaultHtml(html) {
     const blocksFromHTML = convertFromHTML(html);
-    console.log('b', blocksFromHTML)
-    console.log('blocks', blocksFromHTML.contentBlocks)
     const nextContentState = ContentState.createFromBlockArray(blocksFromHTML);
     let nextEditorState = EditorState.createWithContent(nextContentState, decorator);
     this.setEditorState(nextEditorState);

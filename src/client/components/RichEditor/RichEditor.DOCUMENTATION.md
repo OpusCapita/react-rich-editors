@@ -1,7 +1,6 @@
 ### Synopsis
 
-RichEditor is 
-*Write here a short introduction and/or overview that explains **what** component is.*
+**RichEditor** is a base rich editor component written using [draf-js framework](https://facebook.github.io/draft-js).
 
 ### Code Example
 
@@ -16,12 +15,13 @@ RichEditor is
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
-| demoProp | string | Write a description of the property |
+| placeholder | string | Default text if editor content is empty |
+| autoFocus | bool | Focus on `componentDidMount` |
+| features | arrayOf(object) | Map of configurable features. For more details see `RichEditor/lib/default-features` |
+| onChange | func | Callback fired on editor content change. `(text, editorState) => {}` |
 
 ### Contributors
-*Write here contributor names/contacts*
-
-[GIT REPOSITORY](http://buildserver.jcatalog.com/gitweb/?p=js-react-application-generator.git)
+Kirill Volkovich
 
 ### Component Name
 

@@ -1,6 +1,6 @@
 ### Synopsis
 
-EmailRichEditor
+EmailRichEditor is a wrapper around **RichEditor** component, preconfigured for edit emails.
 
 ### Code Example
 
@@ -16,7 +16,10 @@ EmailRichEditor
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
-| onChange | func | Write a description of the property |
+| defaultHtml | string | Default HTML value. |
+| onChange | func | Callback fired on editor content change. `(stringifiedHtml, editorState) => {}` |
+
+It can take any other props of **RichEditor** component.
 
 ### Contributors
 Kirill Volkovich
