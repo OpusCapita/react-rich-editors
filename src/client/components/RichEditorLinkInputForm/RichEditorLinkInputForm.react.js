@@ -60,14 +60,11 @@ class RichEditorLinkInputForm extends Component {
 
   render() {
     let {
-      applyLabel,
-      cancelLabel,
       defaultUrl,
-      linkLabel,
-      textLabel,
       onHide,
       onSubmit
     } = this.props;
+    let t = this.props.translations;
 
     let {
       isUrlInputFocused,
@@ -85,13 +82,13 @@ class RichEditorLinkInputForm extends Component {
             <input
               ref={ref => (this._input = ref)}
               className={s.input}
-              placeholder={textLabel}
+              placeholder={t.textInputPlaceholder}
               onChange={event => this.handleInputChange.call(this, 'text', event)}
               value={text}
             />
             <input
               className={s.input}
-              placeholder={linkLabel}
+              placeholder={t.urlInputPlaceholder}
               onChange={event => this.handleInputChange.call(this, 'url', event)}
               value={url}
               onBlur={this.handleUrlInputBlur.bind(this)}
@@ -101,12 +98,12 @@ class RichEditorLinkInputForm extends Component {
           <div className={s.buttonsBlock}>
             <div className={s.applyButton}>
               <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>
-                {applyLabel}
+                {t.applyButton}
               </button>
           </div>
             <div className={s.cancelButton}>
               <button className="btn btn-default" onClick={onHide}>
-                {cancelLabel}
+                {t.cancelButton}
               </button>
             </div>
           </div>
@@ -117,24 +114,28 @@ class RichEditorLinkInputForm extends Component {
 }
 
 RichEditorLinkInputForm.propTypes = {
-  applyLabel: PropTypes.string,
+  translations: PropTypes.shape({
+    applyButton: PropTypes.string,
+    cancelButton: PropTypes.string,
+    urlInputPlaceholder: PropTypes.string,
+    textInputPlaceholder: PropTypes.string
+  }),
   defaultUrl: PropTypes.string,
-  linkLabel: PropTypes.string,
   onHide: PropTypes.func,
   onSubmit: PropTypes.func,
-  submitLabel: PropTypes.string,
   text: PropTypes.string,
-  textLabel: PropTypes.string,
-  url: PropTypes.string,
+  url: PropTypes.string
 };
 RichEditorLinkInputForm.defaultProps = {
-  applyLabel: 'Apply',
-  cancelLabel: 'Cancel',
+  translations: {
+    applyButton: 'Apply',
+    cancelButton: 'Cancel',
+    urlInputPlaceholder: 'Paste or type a link',
+    textInputPlaceholder: 'Insert a text',
+  },
   defaultUrl: 'http://',
-  linkLabel: 'Paste or type a link',
   onHide: () => {},
   onSubmit: (text, link) => {},
   text: '',
-  textLabel: 'Insert a text',
   url: ''
 };
