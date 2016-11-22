@@ -19,7 +19,7 @@ EmailRichEditor is a wrapper around **RichEditor** component, preconfigured for 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
 | defaultHtml | string | Default HTML value. |
-| onChange | func | Callback fired on editor content change. `(stringifiedHtml, editorState) => {}` |
+| onChange | func | Callback fired on editor content change. `(stringifiedHtml, editorState) => {}`. [EditorState defenition](https://facebook.github.io/draft-js/docs/api-reference-editor-state.html)|
 
 It can take any other props of **RichEditor** component.
 

@@ -20,7 +20,7 @@
 | placeholder | string | Default text if editor content is empty |
 | autoFocus | bool | Focus on `componentDidMount` |
 | features | arrayOf(object) | Map of configurable features. For more details see `RichEditor/lib/default-features` |
-| onChange | func | Callback fired on editor content change. `(text, editorState) => {}` |
+| onChange | func | Callback fired on editor content change. `(text, editorState) => {}`. [EditorState definition](https://facebook.github.io/draft-js/docs/api-reference-editor-state.html) |
 
 ### Contributors
 Kirill Volkovich
