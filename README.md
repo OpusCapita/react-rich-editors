@@ -12,6 +12,7 @@ import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
 ```
 
 ## Demo
+![js-react-rich-editors-demo](https://raw.githubusercontent.com/OpusCapitaBES/js-react-rich-editors/master/demo.PNG?token=AWiQTHmEKzzmcOGbb5ASA3w5TVqfSmz5ks5YPa58wA%3D%3D)
 
 * Clone this repository
 * Run `npm install`
