@@ -97,12 +97,12 @@ class RichEditorLinkInputForm extends Component {
           </div>
           <div className={s.buttonsBlock}>
             <div className={s.applyButton}>
-              <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>
+              <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)} type="button">
                 {t.applyButton}
               </button>
           </div>
             <div className={s.cancelButton}>
-              <button className="btn btn-default" onClick={onHide}>
+              <button className="btn btn-default" onClick={onHide} type="button">
                 {t.cancelButton}
               </button>
             </div>
