@@ -2,6 +2,15 @@
 
 **EmailRichEditor** is a wrapper around **RichEditor** component, preconfigured for edit emails.
 
+### Props Reference
+
+| Name                          | Type                  | Description                                                |
+| ------------------------------|:----------------------| -----------------------------------------------------------|
+| value | string | Default HTML value. |
+| onChange | func | Callback fired on editor content change. `(stringifiedHtml, editorState) => {}`. [EditorState defenition](https://facebook.github.io/draft-js/docs/api-reference-editor-state.html)|
+
+It can take any other props of **RichEditor** component.
+
 ### Code Example
 
 ```
@@ -13,15 +22,6 @@
   />
 </div>
 ```
-
-### Props Reference
-
-| Name                          | Type                  | Description                                                |
-| ------------------------------|:----------------------| -----------------------------------------------------------|
-| value | string | Default HTML value. |
-| onChange | func | Callback fired on editor content change. `(stringifiedHtml, editorState) => {}`. [EditorState defenition](https://facebook.github.io/draft-js/docs/api-reference-editor-state.html)|
-
-It can take any other props of **RichEditor** component.
 
 ### Contributors
 Kirill Volkovich

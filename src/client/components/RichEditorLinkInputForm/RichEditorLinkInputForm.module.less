@@ -1,37 +1,33 @@
 .richEditorLinkInputForm {
   display: inline-flex;
   flex-wrap: wrap;
+  flex: 1;
+}
+
+.gap {
+  height: 24px;
+  width: 24px;
+}
+
+.gapSmall {
+  height: 12;
+  width: 6px;
 }
 
 .form {
   display: flex;
-  //flex-direction: column;
   flex: 5 0 auto;
 }
 
-.input {
-  border: none;
+.formInput {
   display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   flex: 1;
-  font-size: 16px;
-}
-
-.input::placeholder {
-  color: #333;
-  opacity: 0.6;
-}
-
-.input:focus {
-  outline: none;
 }
 
 .buttonsBlock {
   align-items: center;
   display: flex;
   flex: 1 0 10%;
-  justify-content: space-around;
-}
-
-.cancelButton {
-  margin: 0 12px;
+  justify-content: flex-end;
 }

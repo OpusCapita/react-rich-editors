@@ -3,20 +3,12 @@
 RichEditorLinkInputForm is 
 *Write here a short introduction and/or overview that explains **what** component is.*
 
-### Code Example
-
-```
-<RichEditorLinkInputForm 
-  
-/>
-```
-
 ### Props Reference
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
 | translations | shape | Tranlsations map. See 	appropriate section |
-| preconfiguredLinks | shape | You can provide a variants. See appropriate section |
+| autoCompletionLinks | arrayOf(shape) | Links for auto completion. `[ { text: string, url: string }, ... ]` `text` values **must** be unique |
 
 #### Translations
 * applyButton
@@ -24,15 +16,13 @@ RichEditorLinkInputForm is
 * urlInputPlaceholder
 * textInputPlaceholder
 
-#### Preconfigured links
-##### Format:
-```
-[
-  { text: 'Test installation', url: 'http://test.opuscapita.com' },
-  { text: 'Production installation', url: 'http://prod.opuscapita.com' }
-]
-```
+### Code Example
 
+```
+<RichEditorLinkInputForm 
+  
+/>
+```
 
 ### Contributors
 *Write here contributor names/contacts*

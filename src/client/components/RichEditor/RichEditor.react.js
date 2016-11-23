@@ -130,7 +130,7 @@ class RichEditor extends Component {
   }
 
   render() {
-    let { features, placeholder } = this.props;
+    let { features, placeholder, autoCompletionLinks } = this.props;
     let { editorState, isShowLinkInputForm } = this.state;
 
     let activeFeatures = this.getActiveFeatures(features);
@@ -145,13 +145,14 @@ class RichEditor extends Component {
             ref={ref => (this._linkInputForm = ref)}
             onHide={() => this.toggleShowLinkInputForm.call(this, false)}
             onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), url)}
+            autoCompletionLinks={autoCompletionLinks}
           />
         </div>}
       </Motion>
     )
 
     return (
-      <div className={`${s.richEditor} form-control`} style={{ padding: '0' }}>
+      <div className={`${s.richEditor} form-control`} style={{ padding: '0', boxShadow: 'none' }}>
         <div className={s.toolbar}>
           <RichEditorToolbar
             activeFeatures={activeFeatures}
@@ -179,8 +180,14 @@ RichEditor.propTypes = {
   autoFocus: PropTypes.bool,
   features: PropTypes.array,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  autoCompletionLinks: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string,
+    text: PropTypes.string,
+    url: PropTypes.string
+  }))
 };
 RichEditor.defaultProps = {
-  features: defaultFeatures
+  features: defaultFeatures,
+  autoCompletionLinks: []
 };
