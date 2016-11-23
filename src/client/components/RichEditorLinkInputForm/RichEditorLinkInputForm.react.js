@@ -16,7 +16,7 @@ class RichEditorLinkInputForm extends Component {
   }
 
   focus() {
-    // this._input.focus();
+    this._textInput.focus();
   }
 
   clearValues() {
@@ -95,6 +95,7 @@ class RichEditorLinkInputForm extends Component {
           <div className={s.form}>
             <div className={s.formInput}>
               <FakeInputAutocomplete
+                ref={ref => (this._textInput = ref)}
                 placeholder={t.textInputPlaceholder}
                 onChange={event => this.handleInputChange.call(this, 'text', event)}
                 onSelect={(event, text) => console.log('select', text) || this.handleAutoCompletionSelect.call(this, text)}

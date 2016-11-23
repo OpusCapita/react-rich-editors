@@ -13,7 +13,7 @@ import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
 import defaultFeatures from './lib/default-features';
 import featureTypes from './lib/feature-types';
-import { Motion, spring } from 'react-motion';
+import { Motion, spring, presets } from 'react-motion';
 import decorator from './lib/decorator';
 
 export default
@@ -67,7 +67,6 @@ class RichEditor extends Component {
     let url = getLinkUrl(editorState, selectionState) || '';
     if(nextIsShowLinkInputForm) {
       this._linkInputForm.clearValues();
-      this._linkInputForm.focus();
       this._linkInputForm.setText(text);
       this._linkInputForm.setUrl(url);
     }
@@ -134,20 +133,25 @@ class RichEditor extends Component {
     let { editorState, isShowLinkInputForm } = this.state;
 
     let activeFeatures = this.getActiveFeatures(features);
+    let motionPreset = presets.noWobble;
 
     let linkInputForm = (
       <Motion
         defaultStyle={{ x: -100 }}
-        style={{ x: isShowLinkInputForm ? spring(0) : spring(-100) }}
-      >{interpolatedStyle =>
-        <div className={s.toolbarPrompt} style={{ transform: `translate(${interpolatedStyle.x}%, 0)` }}>
-          <RichEditorLinkInputForm
-            ref={ref => (this._linkInputForm = ref)}
-            onHide={() => this.toggleShowLinkInputForm.call(this, false)}
-            onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), url)}
-            autoCompletionLinks={autoCompletionLinks}
-          />
-        </div>}
+        style={{ x: isShowLinkInputForm ? spring(0, motionPreset) : spring(-100, motionPreset) }}
+        onRest={() => isShowLinkInputForm && this._linkInputForm.focus()}
+      >{interpolatedStyle => {
+        return (
+          <div className={s.toolbarPrompt} style={{ transform: `translate(${interpolatedStyle.x}%, 0)` }}>
+            <RichEditorLinkInputForm
+              ref={ref => (this._linkInputForm = ref)}
+              onHide={() => this.toggleShowLinkInputForm.call(this, false)}
+              onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), url)}
+              autoCompletionLinks={autoCompletionLinks}
+            />
+          </div>
+        )
+      }}
       </Motion>
     )
 
