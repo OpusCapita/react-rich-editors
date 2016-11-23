@@ -151,7 +151,7 @@ class RichEditor extends Component {
     )
 
     return (
-      <div className={s.richEditor}>
+      <div className={`${s.richEditor} form-control`} style={{ padding: '0' }}>
         <div className={s.toolbar}>
           <RichEditorToolbar
             activeFeatures={activeFeatures}
