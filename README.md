@@ -28,6 +28,19 @@ Run **demo** or wait for a global demo installation with most of react component
 
 There is no tests now.
 
+## Grails integration
+
+```
+var element = document.getElementById('email-rich-editor');
+var props = {
+  value: 'test',
+    onChange: function (value) {
+      console.log(value)
+    }
+}
+window['react-rich-editors'].renderEmailRichEditor(element, props);
+```
+
 ## Contributors
 
 Kirill Volkovich, Alexey Sergeev
