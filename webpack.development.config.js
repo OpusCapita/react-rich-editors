@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const packageVersion = require('./package.json').version;
 
 module.exports = {
   entry: {
@@ -7,18 +8,14 @@ module.exports = {
     'rich-editors': './src/client/index.integration.js'
   },
   output: {
+    publicPath: '/static',
     path: path.resolve(__dirname, 'build/client'),
     filename: '[name].bundle.js',
     library: 'react-[name]',
     libraryTarget: 'umd'
   },
 
-  externals: {
-    TermReferenceSearchDialog: 'TermReferenceSearchDialog',
-    ProductReferenceSearchDialog: 'ProductReferenceSearchDialog',
-  },
-
-//  devtool: 'cheap-eval-source-map',
+ devtool: 'inline-source-map',
 
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -30,14 +27,21 @@ module.exports = {
   ],
 
   resolve: {
+    root: path.join(__dirname, "node_modules"),
+    fallback: [path.join(__dirname, "node_modules")],
     modulesDirectories: ['node_modules'],
     extensions: ['', '.json', '.jsx', '.js']
   },
 
   resolveLoader: {
+    fallback: [path.join(__dirname, "node_modules")],
     modulesDirectories: ['node_modules'],
     moduleTemplates: ['*-loader', '*'],
     extensions: ['', '.js']
+  },
+
+  postcss: function () {
+    return [require('autoprefixer')];
   },
 
   module: {
@@ -55,15 +59,23 @@ module.exports = {
         loader: 'raw-loader'
       },
       {
-        test: /\.css$/,
-        loader: "style-loader!css-loader"
+        test: /\.(css|less)$/,
+        loader: `style!css?modules&importLoaders=1&` +
+        `localIdentName=[name]__[local]__${packageVersion}_[hash:base64:3]` +
+        `!postcss-loader!less?sourceMap`,
+        include: /\.module\.(css|less)$/
       },
-      { test: /\.less$/, loader: 'style!css!less'},
       {
-        test: /.js?$/,
+        test: /\.(css|less)$/,
+        loader: `style!css!postcss-loader!less?sourceMap`,
+        exclude: /\.module\.(css|less)$/
+      },
+      {
+        test: /.jsx?$/,
         loader: 'babel-loader',
         include: [
-          path.join(__dirname, 'src/client')
+          path.join(__dirname, 'src/client'),
+          path.join(__dirname, 'server')
         ],
         query: {
           presets: ['es2015', 'react', 'stage-0'],
