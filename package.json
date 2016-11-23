@@ -7,12 +7,16 @@
     "link-mode": "webpack --watch --config ./webpack.link.config.js",
     "lint": "eslint src/client",
     "prepublish": "npm run build",
-    "start": "node www/index",
-    "grails-plugin-build": "rimraf build && webpack --config ./webpack.production.config.js --profile --colors --progress",
+    "start": "nodemon --watch src/server src/server/index --exec babel-node --presets es2015,stage-0,react --plugins transform-decorators-legacy",
+    "grails-plugin-build": "rimraf build && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "grails-plugin-package": "npm run grails-plugin-build && grails-plugin-package",
     "grails-plugin-install": "npm run grails-plugin-package && grails-plugin-install",
     "grails-plugin-deploy": "npm run grails-plugin-package && grails-plugin-deploy",
-    "grails-plugin-deploy-release": "npm run grails-plugin-package -- --release && grails-plugin-deploy --release"
+    "grails-plugin-deploy-release": "npm run grails-plugin-package -- --release && grails-plugin-deploy --release",
+    "npm-build": "rimraf lib && babel --copy-files --no-babelrc --presets es2015,stage-0,react --plugins transform-decorators-legacy --ignore __tests__,*.spec.js,demo src/client --out-dir lib",
+    "npm-publish": "npm run npm-build && npm-publish",
+    "publish-snapshot": "npm run grails-plugin-deploy && npm run npm-publish",
+    "publish-release": "npm run grails-plugin-deploy-release && npm run npm-publish -- --release"
   },
   "author": {
     "name": "Kirill Volkovich",
@@ -67,6 +71,10 @@
     "source-map-loader": "0.1.5",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
+    "cookie-parser": "1.4.3",
+    "body-parser": "1.15.2",
+    "intel": "1.1.0",
+    "morgan": "1.7.0",
     "webpack": "1.12.2",
     "webpack-dev-middleware": "1.5.1",
     "write-file-webpack-plugin": "3.3.0"
@@ -86,7 +94,7 @@
     "resources": {
       "react-rich-editors": {
         "files": {
-          "index.js": "js/grails-index.js"
+          "client/rich-editors.bundle.min.js": "js/rich-editors.bundle.min.js"
         }
       }
     }

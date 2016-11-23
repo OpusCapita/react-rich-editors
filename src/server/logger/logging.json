@@ -1,0 +1,30 @@
+{
+  "formatters": {
+    "simple": {
+      "format": "%(date)s (%(levelname)s) [%(name)s] %(message)s",
+      "colorize": true
+    },
+    "details": {
+      "format": "%(date)s (%(levelname)s) [%(name)s] %(message)s"
+    }
+  },
+  "handlers": {
+    "terminal": {
+      "class": "intel/handlers/console",
+      "formatter": "simple"
+    },
+    "logfile": {
+      "class": "intel/handlers/file",
+      "file": "./logs/supplier.log",
+      "formatter": "details"
+    }
+  },
+  "loggers": {
+    "": {
+      "handlers": [
+        "terminal",
+        "logfile"
+      ]
+    }
+  }
+}
