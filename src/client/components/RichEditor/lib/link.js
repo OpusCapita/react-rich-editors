@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Entity, RichUtils } from 'draft-js';
 import { replaceTextOfSelection } from './selection';
 

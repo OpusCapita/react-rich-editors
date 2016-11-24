@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default
 class ShortcutContainer extends Component {
@@ -23,7 +23,18 @@ class ShortcutContainer extends Component {
   }
 
   render() {
-    return this.props.children;
+    let {
+      keyMap, // eslint-disable-line no-unused-vars
+      handlers, // eslint-disable-line no-unused-vars
+      targets, // eslint-disable-line no-unused-vars
+      targetsExclude, // eslint-disable-line no-unused-vars
+      ...restProps
+    } = this.props;
+    return (
+      <div { ...restProps }>
+        {this.props.children}
+      </div>
+    );
   }
 }
 

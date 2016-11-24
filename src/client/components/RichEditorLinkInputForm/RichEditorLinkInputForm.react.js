@@ -85,48 +85,51 @@ class RichEditorLinkInputForm extends Component {
     let maxSuggessionsHeight = 200;
 
     return (
-      <div className={s.richEditorLinkInputForm} { ...restProps }>
-        <ShortcutContainer keyMap={keyMap} handlers={handlers}>
-          <div className={s.form}>
-            <div className={s.formInput}>
-              <FakeInputAutocomplete
-                ref={ref => (this._textInput = ref)}
-                placeholder={t.textInputPlaceholder}
-                onChange={event => this.handleInputChange.call(this, 'text', event)}
-                onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
-                items={textsAutocomplete}
-                value={text}
-                maxSuggessionsHeight={maxSuggessionsHeight}
-              />
-            </div>
-            <div className={s.gap}></div>
-            <div className={s.formInput}>
-              <FakeInputAutocomplete
-                placeholder={t.urlInputPlaceholder}
-                onChange={event => this.handleInputChange.call(this, 'url', event)}
-                value={url}
-                onBlur={this.handleUrlInputBlur.bind(this)}
-                onFocus={this.handleUrlInputFocus.bind(this)}
-                maxSuggessionsHeight={maxSuggessionsHeight}
-              />
-            </div>
+      <ShortcutContainer
+        keyMap={keyMap}
+        handlers={handlers}
+        className={s.richEditorLinkInputForm}
+        { ...restProps }
+      >
+        <div className={s.form}>
+          <div className={s.formInput}>
+            <FakeInputAutocomplete
+              ref={ref => (this._textInput = ref)}
+              placeholder={t.textInputPlaceholder}
+              onChange={event => this.handleInputChange.call(this, 'text', event)}
+              onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
+              items={textsAutocomplete}
+              value={text}
+              maxSuggessionsHeight={maxSuggessionsHeight}
+            />
           </div>
           <div className={s.gap}></div>
-          <div className={s.buttonsBlock}>
-            <div className={s.applyButton}>
-              <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)} type="button">
-                {t.applyButton}
-              </button>
-            </div>
-            <div className={s.gapSmall}></div>
-            <div className={s.cancelButton}>
-              <button className="btn btn-default" onClick={onHide} type="button">
-                {t.cancelButton}
-              </button>
-            </div>
+          <div className={s.formInput}>
+            <FakeInputAutocomplete
+              placeholder={t.urlInputPlaceholder}
+              onChange={event => this.handleInputChange.call(this, 'url', event)}
+              value={url}
+              onBlur={this.handleUrlInputBlur.bind(this)}
+              onFocus={this.handleUrlInputFocus.bind(this)}
+              maxSuggessionsHeight={maxSuggessionsHeight}
+            />
           </div>
-        </ShortcutContainer>
-      </div>
+        </div>
+        <div className={s.gap}></div>
+        <div className={s.buttonsBlock}>
+          <div className={s.applyButton}>
+            <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)} type="button">
+              {t.applyButton}
+            </button>
+          </div>
+          <div className={s.gapSmall}></div>
+          <div className={s.cancelButton}>
+            <button className="btn btn-default" onClick={onHide} type="button">
+              {t.cancelButton}
+            </button>
+          </div>
+        </div>
+      </ShortcutContainer>
     );
   }
 }
