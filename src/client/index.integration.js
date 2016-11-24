@@ -8,11 +8,10 @@ var ReactDOM = require('react-dom');
 
 var EmailRichEditor = require('./components/EmailRichEditor/EmailRichEditor.react').default;
 
-const renderComponent = (component) => {
+const renderComponent = component => {
   return (domElement, props) => {
-    ReactDOM.render(
-      React.createElement(component, props),
-      domElement);
+    let reactElement = React.createElement(component, props);
+    ReactDOM.render(reactElement, domElement);
 
     return () => {
       ReactDOM.unmountComponentAtNode(domElement);
