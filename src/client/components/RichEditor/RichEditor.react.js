@@ -69,6 +69,7 @@ class RichEditor extends Component {
       this._linkInputForm.clearValues();
       this._linkInputForm.setText(text);
       this._linkInputForm.setUrl(url);
+      this._linkInputFocusTimeout = setTimeout(() => this._linkInputForm.focus(), 600);
     }
   }
 
@@ -139,7 +140,6 @@ class RichEditor extends Component {
       <Motion
         defaultStyle={{ x: -100 }}
         style={{ x: isShowLinkInputForm ? spring(0, motionPreset) : spring(-100, motionPreset) }}
-        onRest={() => isShowLinkInputForm && this._linkInputForm.focus()}
       >{interpolatedStyle => {
         return (
           <div className={s.toolbarPrompt} style={{ transform: `translate(${interpolatedStyle.x}%, 0)` }}>
