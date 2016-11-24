@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
+import { Component, PropTypes } from 'react';
 
 export default
 class ShortcutContainer extends Component {

@@ -1,12 +1,20 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+let React = require('react');
+let ReactDOM = require('react-dom');
 
-(typeof window.React !== 'undefined') || (window.React = React);
-(typeof window.react !== 'undefined') || (window.react = React);
-(typeof window.ReactDOM !== 'undefined') || (window.ReactDOM = ReactDOM);
-(typeof window['react-dom'] !== 'undefined') || (window['react-dom'] = ReactDOM);
+if (typeof window.React !== 'undefined') {
+  window.React = React;
+}
+if (typeof window.react !== 'undefined') {
+  window.react = React
+}
+if (typeof window.ReactDOM !== 'undefined') {
+  window.ReactDOM = ReactDOM
+}
+if (typeof window['react-dom'] !== 'undefined') {
+  window['react-dom'] = ReactDOM;
+}
 
-var EmailRichEditor = require('./components/EmailRichEditor/EmailRichEditor.react').default;
+let EmailRichEditor = require('./components/EmailRichEditor/EmailRichEditor.react').default;
 
 const renderComponent = component => {
   return (domElement, props) => {

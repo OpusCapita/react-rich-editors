@@ -1,14 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import s from './RichEditor.module.less';
 import {
-  CompositeDecorator,
   Editor,
   EditorState,
-  Modifier,
   RichUtils
 } from 'draft-js';
 import { confirmLink, removeLink, getLinkUrl } from './lib/link';
-import { getPlainTextOfSelection, replaceTextOfSelection } from './lib/selection';
+import { getPlainTextOfSelection } from './lib/selection';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
 import defaultFeatures from './lib/default-features';
@@ -31,11 +29,11 @@ class RichEditor extends Component {
   }
 
   handleAutoFocusProperty() {
-    this.props.autoFocus && this.focus();
+    return this.props.autoFocus && this.focus();
   }
 
   focus() {
-    this._editor.focus();
+    return this._editor.focus();
   }
 
   getCurrentSelection() {
@@ -65,7 +63,7 @@ class RichEditor extends Component {
     let selectionState = editorState.getSelection();
     let text = getPlainTextOfSelection(editorState, selectionState);
     let url = getLinkUrl(editorState, selectionState) || '';
-    if(nextIsShowLinkInputForm) {
+    if (nextIsShowLinkInputForm) {
       this._linkInputForm.clearValues();
       this._linkInputForm.setText(text);
       this._linkInputForm.setUrl(url);
@@ -75,12 +73,14 @@ class RichEditor extends Component {
 
   onChange(editorState) {
     let plainText = editorState.getCurrentContent().getPlainText();
-    this.props.onChange && this.props.onChange(plainText, editorState);
+    if (this.props.onChange) {
+      this.props.onChange(plainText, editorState);
+    }
     return this.setState({ editorState });
   }
 
   getFeatureHandler(feature) {
-    switch(feature.type) {
+    switch (feature.type) {
       case featureTypes.BLOCK_TYPE: return this.toggleBlockType(feature.style);
       case featureTypes.INLINE_STYLE: return this.toggleInlineStyle(feature.style);
       case featureTypes.INSERT_LINK: return this.toggleShowLinkInputForm(feature.style);
@@ -89,17 +89,17 @@ class RichEditor extends Component {
   }
 
   isFeatureIsActive(feature) {
-    switch(feature.type) {
-      case featureTypes.BLOCK_TYPE: return (this.getCurrentBlockType() === feature.style); break;
-      case featureTypes.INLINE_STYLE: return this.getCurrentInlineStyle().has(feature.style); break;
-      case featureTypes.INSERT_LINK: return this.state.isShowLinkInputForm; break;
+    switch (feature.type) {
+      case featureTypes.BLOCK_TYPE: return (this.getCurrentBlockType() === feature.style);
+      case featureTypes.INLINE_STYLE: return this.getCurrentInlineStyle().has(feature.style);
+      case featureTypes.INSERT_LINK: return this.state.isShowLinkInputForm;
       default: return false;
     }
   }
 
   getActiveFeatures(features) {
     return features.reduce((result, feature) =>
-      this.isFeatureIsActive(feature) ? [ ...result, feature.id ] : result,
+      this.isFeatureIsActive(feature) ? [...result, feature.id] : result,
       []
     );
   }
@@ -107,10 +107,10 @@ class RichEditor extends Component {
   getCurrentBlockType() {
     let { editorState } = this.state;
     let selection = editorState.getSelection();
-    return editorState
-      .getCurrentContent()
-      .getBlockForKey(selection.getStartKey())
-      .getType();
+    return editorState.
+      getCurrentContent().
+      getBlockForKey(selection.getStartKey()).
+      getType();
   }
 
   getCurrentInlineStyle() {
@@ -120,7 +120,7 @@ class RichEditor extends Component {
 
   handleLinkChange(selection, text, url) {
     let { editorState } = this.state;
-    if(!url) {
+    if (!url) {
       let nextEditorState = removeLink(editorState, selection);
       return this.setState({ editorState: nextEditorState });
     }

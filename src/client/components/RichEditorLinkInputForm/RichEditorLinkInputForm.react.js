@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
-import Button from 'jcatalog-react-ui-buttons/lib/Button';
 import ShortcutContainer from '../ShortcutContainer';
 import FakeInputAutocomplete from 'jcatalog-react-ui-autocompletes/lib/FakeInputAutocomplete';
-let cancelIcon = require('!!raw!jcatalog-svg-icons/lib/cancel.svg');
 
 export default
 class RichEditorLinkInputForm extends Component {
@@ -46,7 +44,7 @@ class RichEditorLinkInputForm extends Component {
   handleUrlInputFocus() {
     let { defaultUrl } = this.props;
     let { url } = this.state;
-    if(!url.length) {
+    if (!url.length) {
       this.setState({ url: defaultUrl });
     }
   }
@@ -54,7 +52,7 @@ class RichEditorLinkInputForm extends Component {
   handleUrlInputBlur() {
     let { defaultUrl } = this.props;
     let { url } = this.state;
-    if(url === defaultUrl) {
+    if (url === defaultUrl) {
       this.setState({ url: '' });
     }
   }
@@ -69,17 +67,14 @@ class RichEditorLinkInputForm extends Component {
   render() {
     let {
       autoCompletionLinks,
-      defaultUrl,
+      defaultUrl, // eslint-disable-line no-unused-vars
       onHide,
-      onSubmit
+      onSubmit, // eslint-disable-line no-unused-vars
+      ...restProps
     } = this.props;
     let t = this.props.translations;
 
-    let {
-      isUrlInputFocused,
-      text,
-      url
-    } = this.state;
+    let { text, url } = this.state;
 
     let keyMap = { hide: ['Escape'] }; // TODO
     let handlers = { hide: this.props.onHide } // TODO
@@ -90,18 +85,18 @@ class RichEditorLinkInputForm extends Component {
     let maxSuggessionsHeight = 200;
 
     return (
-      <ShortcutContainer keyMap={keyMap} handlers={handlers}>
-        <div className={s.richEditorLinkInputForm}>
+      <div className={s.richEditorLinkInputForm} { ...restProps }>
+        <ShortcutContainer keyMap={keyMap} handlers={handlers}>
           <div className={s.form}>
             <div className={s.formInput}>
               <FakeInputAutocomplete
                 ref={ref => (this._textInput = ref)}
                 placeholder={t.textInputPlaceholder}
                 onChange={event => this.handleInputChange.call(this, 'text', event)}
-                onSelect={(event, text) => console.log('select', text) || this.handleAutoCompletionSelect.call(this, text)}
+                onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
                 items={textsAutocomplete}
                 value={text}
-                maxSuggessionsHeight={200}
+                maxSuggessionsHeight={maxSuggessionsHeight}
               />
             </div>
             <div className={s.gap}></div>
@@ -112,7 +107,7 @@ class RichEditorLinkInputForm extends Component {
                 value={url}
                 onBlur={this.handleUrlInputBlur.bind(this)}
                 onFocus={this.handleUrlInputFocus.bind(this)}
-                maxSuggessionsHeight={200}
+                maxSuggessionsHeight={maxSuggessionsHeight}
               />
             </div>
           </div>
@@ -130,8 +125,8 @@ class RichEditorLinkInputForm extends Component {
               </button>
             </div>
           </div>
-        </div>
-      </ShortcutContainer>
+        </ShortcutContainer>
+      </div>
     );
   }
 }

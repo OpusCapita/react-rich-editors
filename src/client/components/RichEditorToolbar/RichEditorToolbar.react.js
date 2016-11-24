@@ -7,16 +7,14 @@ class RichEditorToolbar extends Component {
   render() {
     let {
       activeFeatures,
-      editorState,
+      editorState, // eslint-disable-line no-unused-vars
       features,
       onGetFeatureHandler,
-      onBlockTypeToggle,
-      onChange,
-      onInlineStyleToggle
+      ...restProps
     } = this.props;
 
     return (
-      <div className={s.richEditorToolbar}>
+      <div className={s.richEditorToolbar} { ...restProps }>
         {features.map((feature, index) => (
           <div className={s.featureButton} key={index}>
             <TitledButton

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { showroomScopeDecorator } from 'jcatalog-showroom';
 
 function requireAll(requireContext) {
@@ -8,7 +8,7 @@ function requireAll(requireContext) {
   }));
 }
 
-let icons = requireAll(require.context( '!!raw-loader!jcatalog-svg-icons/lib', true, /.*\.svg$/));
+let icons = requireAll(require.context('!!raw-loader!jcatalog-svg-icons/lib', true, /.*\.svg$/));
 
 @showroomScopeDecorator
 class RichEditorSCOPE extends Component {
@@ -24,7 +24,7 @@ class RichEditorSCOPE extends Component {
   }
 
   getIcon(name) {
-   return this.state.icons.find(icon => icon.name === name).svg
+    return this.state.icons.find(icon => icon.name === name).svg
   }
 
   toggleOption(name) {

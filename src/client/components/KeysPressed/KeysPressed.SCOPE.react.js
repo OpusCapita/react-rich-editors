@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { showroomScopeDecorator } from 'jcatalog-showroom';
 import Button from 'jcatalog-react-ui-buttons/lib/Button';
 import keycode from 'keycode';
@@ -22,7 +22,7 @@ class KeysPressedSCOPE extends Component {
     let lastPressedKey = event.which;
     this.setState({
       keysPressed: keysPressed,
-      keysPressedLog: [ lastPressedKey ].concat(prevKeysPressedLog)
+      keysPressedLog: [lastPressedKey].concat(prevKeysPressedLog)
     });
   }
 

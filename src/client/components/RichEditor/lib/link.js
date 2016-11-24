@@ -1,5 +1,5 @@
-import { CompositeDecorator, Entity, RichUtils } from 'draft-js';
-import { Map } from 'immutable';
+import React from 'react';
+import { Entity, RichUtils } from 'draft-js';
 import { replaceTextOfSelection } from './selection';
 
 export const Link = (props) => {
@@ -10,6 +10,10 @@ export const Link = (props) => {
     </a>
   );
 };
+
+Link.propTypes = {
+  entityKey: PropTypes.number
+}
 
 export function findLinkEntities(contentBlock, callback) {
   contentBlock.findEntityRanges(
@@ -39,9 +43,11 @@ export function getLinkUrl(editorState, selection) {
     }
     return url;
   }
+  return null;
 }
 
 export function confirmLink(editorState, selection, nextText, url) {
+   // eslint-disable-next-line
   let contentState = editorState.getCurrentContent();
   let entityKey = Entity.create('LINK', 'MUTABLE', { url });
   let nextEditorState = RichUtils.toggleLink(editorState, selection, entityKey);

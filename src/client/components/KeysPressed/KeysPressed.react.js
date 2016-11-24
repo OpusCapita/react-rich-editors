@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
 export default
 class KeysPressed extends Component {
@@ -16,15 +15,15 @@ class KeysPressed extends Component {
     this.addListeners(targets);
   }
 
-  componentWillUnmount() {
-    let targets = this.getTargets(this.props.targets, this.props.listenChildren);
-    this.removeListeners(targets);
-  }
-
   componentWillReceiveProps(nextProps) {
     let prevTargets = this.getTargets(this.props.targets, this.props.listenChildren);
     let nextTargets = this.getTargets(nextProps.targets, nextProps.listenChildren);
     this.updateListeners(prevTargets, nextTargets);
+  }
+
+  componentWillUnmount() {
+    let targets = this.getTargets(this.props.targets, this.props.listenChildren);
+    this.removeListeners(targets);
   }
 
   flush() {
@@ -32,8 +31,8 @@ class KeysPressed extends Component {
   }
 
   getTargets(targets, listenChildren) {
-    if(listenChildren) {
-      return [ ...targets, this._children ];
+    if (listenChildren) {
+      return [...targets, this._children];
     }
     return targets;
   }
@@ -63,7 +62,7 @@ class KeysPressed extends Component {
     let which = event.which;
     let isAlreadyPressed = pressed.find(key => key === which);
     let nextPressed = [];
-    if(!isAlreadyPressed) {
+    if (!isAlreadyPressed) {
       nextPressed = pressed.concat([which]);
       this.setState({ pressed: nextPressed });
       onKeyDown(nextPressed, event);
@@ -77,10 +76,10 @@ class KeysPressed extends Component {
     let indexOfPressed = pressed.indexOf(which);
     let isAlreadyPressed = indexOfPressed !== -1;
     let nextPressed = [];
-    if(isAlreadyPressed) {
-      nextPressed = []
-        .concat(pressed.slice(0, indexOfPressed))
-        .concat(pressed.slice(indexOfPressed + 1, pressed.length));
+    if (isAlreadyPressed) {
+      nextPressed = [].
+        concat(pressed.slice(0, indexOfPressed)).
+        concat(pressed.slice(indexOfPressed + 1, pressed.length));
       this.setState({ pressed: nextPressed });
     }
     onKeyUp(nextPressed, event);
