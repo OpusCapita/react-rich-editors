@@ -28,10 +28,6 @@ import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
 
 Run **demo** or wait for a global demo installation with most of react components and their documentation.
 
-## Tests
-
-There is no tests now.
-
 ## Grails integration
 
 ```
