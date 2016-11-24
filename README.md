@@ -9,7 +9,7 @@ Package provide these public components:
 * **RichEditor**
 * **EmailRichEditor**
 
-## Code Example
+## Usage
 
 ```js
 import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
