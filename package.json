@@ -1,5 +1,5 @@
 {
-  "name": "jcatalog-react-rich-editors",
+  "name": "@opuscapita/react-rich-editors",
   "version": "0.0.2",
   "description": "Start write new project with no effort.",
   "scripts": {
@@ -57,7 +57,7 @@
     "eslint-plugin-react": "5.1.1",
     "express": "4.13.4",
     "file-loader": "0.9.0",
-    "jcatalog-dev-tools": "3.0.0",
+    "@opuscapita/npm-scripts": "1.0.1",
     "jcatalog-showroom": "1.2.11",
     "jcatalog-showroom-server": "1.0.1",
     "json-loader": "0.5.4",
