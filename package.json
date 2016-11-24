@@ -28,10 +28,6 @@
   ],
   "license": "jCatalog",
   "readme": "README.md",
-  "peerDependencies": {
-    "react": "0.14.8",
-    "react-dom": "0.14.8"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/OpusCapitaBES/js-react-rich-editors"
@@ -87,6 +83,8 @@
     "jcatalog-react-ui-svg": "0.0.11",
     "jcatalog-svg-icons": "0.0.4",
     "keycode": "2.1.7",
+    "react": "0.14.8",
+    "react-dom": "0.14.8",
     "react-motion": "0.4.5"
   },
   "grails": {
