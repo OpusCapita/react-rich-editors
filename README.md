@@ -3,6 +3,7 @@
 ![js-react-rich-editors-demo](https://raw.githubusercontent.com/OpusCapitaBES/js-react-rich-editors/master/demo.gif?token=AWiQTA958R_RhkZhS7zv7WRswvx4KHwuks5YPbKewA%3D%3D)
 
 React rich-editors-like components. Based on [draft-js](https://facebook.github.io/draft-js/).
+
 Package provide these public components:
 
 * **RichEditor**
