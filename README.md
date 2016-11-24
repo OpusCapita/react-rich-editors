@@ -7,7 +7,7 @@ Package also provide a few preconfigured components.
 
 ## Code Example
 
-```
+```js
 import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
 ...
 <RichEditor />
