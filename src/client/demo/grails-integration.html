@@ -6,19 +6,20 @@
   <title>RichEditors Grails</title>
 </head>
 
-<body style="padding-bottom: 0; overflow-x: hidden;">
+<body>
 <div id="main"></div>
+
+<!-- Connect rich-editors bundle -->
 <script type="application/javascript" src="../../../build/client/rich-editors.bundle.min.js"></script>
+
+<!-- Render rich-editor -->
 <script>
   window.addEventListener('DOMContentLoaded', function() {
     var element = document.getElementById('main');
-    var props = {
-      onChange: function (value) {
-        bodyContentElement.value = value;
-      }
-    }
+    var props = { placeholder: 'Insert email body...' }
     window['react-rich-editors'].renderEmailRichEditor(element, props);
   });
 </script>
+
 </body>
 </html>
