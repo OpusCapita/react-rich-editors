@@ -1,10 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-import EmailRichEditor from './components/EmailRichEditor/EmailRichEditor.react';
+(typeof window.React !== 'undefined') || (window.React = React);
+(typeof window.react !== 'undefined') || (window.react = React);
+(typeof window.ReactDOM !== 'undefined') || (window.ReactDOM = ReactDOM);
+(typeof window['react-dom'] !== 'undefined') || (window['react-dom'] = ReactDOM);
 
-window.__React__ = React;
-window.__ReactDOM__ = ReactDOM;
+var EmailRichEditor = require('./components/EmailRichEditor/EmailRichEditor.react').default;
 
 const renderComponent = (component) => {
   return (domElement, props) => {
