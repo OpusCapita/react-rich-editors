@@ -26,7 +26,7 @@ import { RichEditor } from 'jcatalog-react-rich-editors/lib/RichEditor';
 
 ## API Reference
 
-Run **demo** or wait for a global demo installation with most of react components and their documentation.
+Run **demo** or wait for a global [Showroom](https://github.com/OpusCapitaBES/js-react-showroom) demo installation with most of react components and their documentation.
 
 ## Grails integration
 
