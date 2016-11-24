@@ -39,7 +39,8 @@ Then see source of **src/client/demo/grails-integration.html**
 
 ## Contributors
 
-Kirill Volkovich, Alexey Sergeev
+* Kirill Volkovich
+* Alexey Sergeev
 
 ## License
 
