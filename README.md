@@ -35,7 +35,7 @@ npm install
 npm run grails-plugin-package
 ```
 
-Then see source of **src/client/demo/grails-integration.html**
+Then see [src/client/demo/grails-integration.html](https://github.com/OpusCapitaBES/js-react-rich-editors/blob/master/src/client/demo/grails-integration.html)
 
 ## Contributors
 
