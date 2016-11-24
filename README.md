@@ -39,8 +39,8 @@ Then see [src/client/demo/grails-integration.html](https://github.com/OpusCapita
 
 ## Contributors
 
-* Kirill Volkovich
-* Alexey Sergeev
+* Kirill Volkovich kirill.volkovich@jcatalog.com
+* Alexey Sergeev alexey.sergeev@jcatalog.com
 
 ## License
 
