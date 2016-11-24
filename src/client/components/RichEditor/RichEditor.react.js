@@ -118,14 +118,14 @@ class RichEditor extends Component {
     return editorState.getCurrentInlineStyle();
   }
 
-  handleLinkChange(selection, url) {
+  handleLinkChange(selection, text, url) {
     let { editorState } = this.state;
     if(!url) {
       let nextEditorState = removeLink(editorState, selection);
       return this.setState({ editorState: nextEditorState });
     }
     let prevEditorState = this.state.editorState;
-    let nextEditorState = confirmLink(prevEditorState, selection, url);
+    let nextEditorState = confirmLink(prevEditorState, selection, text, url);
     return this.setState({ editorState: nextEditorState });
   }
 
@@ -146,7 +146,7 @@ class RichEditor extends Component {
             <RichEditorLinkInputForm
               ref={ref => (this._linkInputForm = ref)}
               onHide={() => this.toggleShowLinkInputForm.call(this, false)}
-              onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), url)}
+              onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), text, url)}
               autoCompletionLinks={autoCompletionLinks}
             />
           </div>

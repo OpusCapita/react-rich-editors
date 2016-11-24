@@ -13,8 +13,9 @@ export function getPlainTextOfSelection(editorState, selectionState) {
   return selectedText;
 }
 
-export function replaceTextOfSelection(editorState, selection, replaceBy) {
+export function replaceTextOfSelection(editorState, selection, replaceBy, inlineStyle, entityKey) {
   let prevContentState = editorState.getCurrentContent();
-  let nextContentState = Modifier.replaceText(prevContentState, selection, replaceBy);
-  let nextEditorState = EditorState.createWidthContent(nextContentState, decorator);
+  let nextContentState = Modifier.replaceText(prevContentState, selection, replaceBy, inlineStyle, entityKey);
+  let nextEditorState = EditorState.createWithContent(nextContentState, decorator);
+  return nextEditorState;
 }
