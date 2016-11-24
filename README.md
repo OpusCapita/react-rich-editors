@@ -31,15 +31,11 @@ There is no tests now.
 ## Grails integration
 
 ```
-var element = document.getElementById('email-rich-editor');
-var props = {
-  value: 'test',
-    onChange: function (value) {
-      console.log(value)
-    }
-}
-window['react-rich-editors'].renderEmailRichEditor(element, props);
+npm install
+npm run grails-plugin-package
 ```
+
+Then see source of **src/client/demo/grails-integration.html**
 
 ## Contributors
 
