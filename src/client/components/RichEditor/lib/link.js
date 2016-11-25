@@ -1,19 +1,5 @@
-import React, { PropTypes } from 'react';
 import { Entity, RichUtils } from 'draft-js';
 import { replaceTextOfSelection } from './selection';
-
-export const Link = (props) => {
-  let { url } = Entity.get(props.entityKey).getData();
-  return (
-    <a href={url} title={url} style={{ textDecoration: 'underiline' }}>
-      {props.children}
-    </a>
-  );
-};
-
-Link.propTypes = {
-  entityKey: PropTypes.number
-}
 
 export function findLinkEntities(contentBlock, callback) {
   contentBlock.findEntityRanges(

@@ -29,7 +29,7 @@ class RichEditor extends Component {
   }
 
   componentWillUnmount() {
-    if(this._linkInputFocusTimeout) {
+    if (this._linkInputFocusTimeout) {
       clearTimeout(this._linkInputFocusTimeout);
     }
   }
