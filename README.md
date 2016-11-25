@@ -1,4 +1,4 @@
-# js-react-rich-editors
+# Rich editors
 
 ## Synopsis
 
