@@ -28,6 +28,12 @@ class RichEditor extends Component {
     this.handleAutoFocusProperty();
   }
 
+  componentWillUnmount() {
+    if(this._linkInputFocusTimeout) {
+      clearTimeout(this._linkInputFocusTimeout);
+    }
+  }
+
   handleAutoFocusProperty() {
     return this.props.autoFocus && this.focus();
   }
