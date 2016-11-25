@@ -1,4 +1,4 @@
-# Rich editors
+# React - Rich editors
 
 ## Synopsis
 
