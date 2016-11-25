@@ -3,7 +3,6 @@
   "version": "0.0.2",
   "description": "Start write new project with no effort.",
   "scripts": {
-    "build": "rimraf lib && babel --copy-files --no-babelrc --presets es2015,stage-0,react --plugins transform-decorators-legacy --ignore __tests__,*.spec.js,demo src/client/components --out-dir lib && webpack --progress --config webpack.production.config",
     "link-mode": "webpack --watch --config ./webpack.link.config.js",
     "lint": "eslint src/client",
     "start": "nodemon --watch src/server src/server/index --exec babel-node --presets es2015,stage-0,react --plugins transform-decorators-legacy",
