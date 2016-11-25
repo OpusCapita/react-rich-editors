@@ -1,5 +1,5 @@
 {
-  "name": "jcatalog-react-rich-editors",
+  "name": "@opuscapita/react-rich-editors",
   "version": "0.0.2",
   "description": "Start write new project with no effort.",
   "scripts": {
