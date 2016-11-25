@@ -1,3 +1,5 @@
+# js-react-rich-editors
+
 ## Synopsis
 
 ![js-react-rich-editors-demo](https://raw.githubusercontent.com/OpusCapitaBES/js-react-rich-editors/master/demo.gif?token=AWiQTA958R_RhkZhS7zv7WRswvx4KHwuks5YPbKewA%3D%3D)
