@@ -14,6 +14,11 @@ if (typeof window['react-dom'] !== 'undefined') {
   window['react-dom'] = ReactDOM;
 }
 
+let scope = typeof global !== "undefined" ? global : self;
+if (!scope._babelPolyfill) {
+  require("babel-polyfill");
+}
+
 let EmailRichEditor = require('./components/EmailRichEditor/EmailRichEditor.react').default;
 
 const renderComponent = component => {
