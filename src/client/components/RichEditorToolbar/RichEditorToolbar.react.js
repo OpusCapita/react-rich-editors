@@ -24,7 +24,6 @@ class RichEditorToolbar extends Component {
               svgSize="24px"
               color="#333"
               bgColor="rgba(255, 255, 255, 0)"
-              title={feature.label}
             />
           </div>
         ))}
