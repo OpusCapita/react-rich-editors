@@ -1,4 +1,10 @@
 
+Release 1.0.4 Tue Nov 29 2016 18:51:42 GMT+0300 (Belarus Standard Time)
+=======================================================
+
+ - Improved 'LinkInputForm'. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 18:51:04 2016 +0300)
+ - Updating to a version to  1.0.4 (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 18:40:23 2016 +0300)
+
 Release 1.0.3 Tue Nov 29 2016 18:39:35 GMT+0300 (Belarus Standard Time)
 =======================================================
 
