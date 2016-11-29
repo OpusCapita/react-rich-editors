@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import s from './RichEditorToolbar.module.less';
-import TitledButton from 'jcatalog-react-ui-buttons/lib/TitledButton';
+import TitledButton from '@opuscapita/react-ui-buttons/lib/TitledButton';
 
 export default
 class RichEditorToolbar extends Component {

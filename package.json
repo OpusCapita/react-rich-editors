@@ -74,12 +74,11 @@
   },
   "dependencies": {
     "@opuscapita/ui-svg-icons": "1.0.0",
+    "@opuscapita/react-ui-buttons": "1.0.1",
     "draft-js": "0.9.1",
     "draft-js-export-html": "0.5.1",
     "immutable": "3.8.1",
     "jcatalog-react-ui-autocompletes": "0.0.8",
-    "jcatalog-react-ui-buttons": "1.0.1",
-    "jcatalog-react-ui-svg": "0.0.11",
     "keycode": "2.1.7",
     "react": "0.14.8",
     "react-dom": "0.14.8",
