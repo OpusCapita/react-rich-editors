@@ -82,7 +82,8 @@ class RichEditorLinkInputForm extends Component {
     let textsAutocomplete = autoCompletionLinks.map(
       autoCompletionLink => ({ key: autoCompletionLink.text, value: autoCompletionLink.text })
     );
-    let maxSuggessionsHeight = 200;
+    let maxSuggessionsHeight = 192;
+    let inputReactComponent = (props) => (<input { ...props } className="form-control" />);
 
     return (
       <ShortcutContainer
@@ -98,6 +99,7 @@ class RichEditorLinkInputForm extends Component {
               placeholder={t.textInputPlaceholder}
               onChange={event => this.handleInputChange.call(this, 'text', event)}
               onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
+              inputReactComponent={inputReactComponent}
               items={textsAutocomplete}
               value={text}
               maxSuggessionsHeight={maxSuggessionsHeight}
@@ -109,6 +111,7 @@ class RichEditorLinkInputForm extends Component {
               placeholder={t.urlInputPlaceholder}
               onChange={event => this.handleInputChange.call(this, 'url', event)}
               value={url}
+              inputReactComponent={inputReactComponent}
               onBlur={this.handleUrlInputBlur.bind(this)}
               onFocus={this.handleUrlInputFocus.bind(this)}
               maxSuggessionsHeight={maxSuggessionsHeight}

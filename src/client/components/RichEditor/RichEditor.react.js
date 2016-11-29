@@ -9,9 +9,9 @@ import { confirmLink, removeLink, getLinkUrl } from './lib/link';
 import { getPlainTextOfSelection } from './lib/selection';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
+import SimpleModal from '@opuscapita/react-ui-overlays/lib/SimpleModal';
 import defaultFeatures from './lib/default-features';
 import featureTypes from './lib/feature-types';
-import { Motion, spring, presets } from 'react-motion';
 import decorator from './lib/decorator';
 
 export default
@@ -73,7 +73,7 @@ class RichEditor extends Component {
       this._linkInputForm.clearValues();
       this._linkInputForm.setText(text);
       this._linkInputForm.setUrl(url);
-      this._linkInputFocusTimeout = setTimeout(() => this._linkInputForm.focus(), 600);
+      this._linkInputFocusTimeout = setTimeout(() => this._linkInputForm.focus(), 800);
     }
   }
 
@@ -89,7 +89,7 @@ class RichEditor extends Component {
     switch (feature.type) {
       case featureTypes.BLOCK_TYPE: return this.toggleBlockType(feature.style);
       case featureTypes.INLINE_STYLE: return this.toggleInlineStyle(feature.style);
-      case featureTypes.INSERT_LINK: return this.toggleShowLinkInputForm(feature.style);
+      case featureTypes.INSERT_LINK: return this.toggleShowLinkInputForm();
       default: return (() => {});
     }
   }
@@ -140,26 +140,22 @@ class RichEditor extends Component {
     let { editorState, isShowLinkInputForm } = this.state;
 
     let activeFeatures = this.getActiveFeatures(features);
-    let motionPreset = presets.noWobble;
 
     let linkInputForm = (
-      <Motion
-        defaultStyle={{ x: -100 }}
-        style={{ x: isShowLinkInputForm ? spring(0, motionPreset) : spring(-100, motionPreset) }}
-      >{interpolatedStyle => {
-        return (
-          <div className={s.toolbarPrompt} style={{ transform: `translate(${interpolatedStyle.x}%, 0)` }}>
-            <RichEditorLinkInputForm
-              ref={ref => (this._linkInputForm = ref)}
-              onHide={() => this.toggleShowLinkInputForm.call(this, false)}
-              onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), text, url)}
-              autoCompletionLinks={autoCompletionLinks}
-            />
-          </div>
-        )
-      }}
-      </Motion>
-    )
+      <SimpleModal
+        isShow={ isShowLinkInputForm }
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        <div className={s.linkInputForm}>
+          <RichEditorLinkInputForm
+            ref={ref => (this._linkInputForm = ref)}
+            onHide={() => this.toggleShowLinkInputForm.call(this, false)}
+            onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), text, url)}
+            autoCompletionLinks={autoCompletionLinks}
+          />
+        </div>
+      </SimpleModal>
+    );
 
     return (
       <div className={`${s.richEditor} form-control`} style={{ padding: '0', boxShadow: 'none' }}>
@@ -171,7 +167,6 @@ class RichEditor extends Component {
             editorState={editorState}
             isPromptOpened={false}
           />
-          {linkInputForm}
         </div>
         <div className={s.textArea} onClick={this.focus.bind(this)}>
           <Editor
@@ -181,6 +176,7 @@ class RichEditor extends Component {
             placeholder={placeholder}
           />
         </div>
+        {linkInputForm}
       </div>
     );
   }
