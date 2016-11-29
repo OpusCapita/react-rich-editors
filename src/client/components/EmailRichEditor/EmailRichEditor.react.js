@@ -5,6 +5,8 @@ import emailFeatures from './features';
 import { EditorState, ContentState, convertFromHTML } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
 import decorator from '../RichEditor/lib/decorator';
+import translations from './translations';
+let getTranslation = (locale, message) => translations[locale][message];
 
 export default
 class EmailRichEditor extends Component {
@@ -45,7 +47,9 @@ class EmailRichEditor extends Component {
   }
 
   render() {
-    let { features, ...restProps } = this.props;
+    let { features, placeholder, ...restProps } = this.props;
+    let getMessage = (message) => getTranslation(this.props.locale, message);
+
     return (
       <div className={s.emailRichEditor}>
         <RichEditor
@@ -53,6 +57,7 @@ class EmailRichEditor extends Component {
           onChange={this.handleChange.bind(this)}
           features={[...emailFeatures, ...features]}
           ref={ref => (this._richEditor = ref)}
+          placeholder={typeof placeholder === 'undefined' ? getMessage('placeholder') : placeholder}
         />
       </div>
     );

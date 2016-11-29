@@ -13,6 +13,8 @@ import SimpleModal from '@opuscapita/react-ui-overlays/lib/SimpleModal';
 import defaultFeatures from './lib/default-features';
 import featureTypes from './lib/feature-types';
 import decorator from './lib/decorator';
+import translations from './translations';
+let getTranslation = (locale, message) => translations[locale][message];
 
 export default
 class RichEditor extends Component {
@@ -136,10 +138,11 @@ class RichEditor extends Component {
   }
 
   render() {
-    let { features, placeholder, autoCompletionLinks } = this.props;
+    let { features, locale, placeholder, autoCompletionLinks } = this.props;
     let { editorState, isShowLinkInputForm } = this.state;
 
     let activeFeatures = this.getActiveFeatures(features);
+    let getMessage = (message) => getTranslation(locale, message);
 
     let linkInputForm = (
       <SimpleModal
@@ -151,6 +154,7 @@ class RichEditor extends Component {
             ref={ref => (this._linkInputForm = ref)}
             onHide={() => this.toggleShowLinkInputForm.call(this, false)}
             onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), text, url)}
+            locale={locale}
             autoCompletionLinks={autoCompletionLinks}
           />
         </div>
@@ -173,7 +177,7 @@ class RichEditor extends Component {
             ref={ref => (this._editor = ref)}
             editorState={editorState}
             onChange={this.onChange.bind(this)}
-            placeholder={placeholder}
+            placeholder={typeof placeholder === 'undefined' ? getMessage('placeholder') : placeholder}
           />
         </div>
         {linkInputForm}
@@ -186,6 +190,7 @@ RichEditor.propTypes = {
   autoFocus: PropTypes.bool,
   features: PropTypes.array,
   onChange: PropTypes.func,
+  locale: PropTypes.string,
   placeholder: PropTypes.string,
   autoCompletionLinks: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
@@ -195,5 +200,6 @@ RichEditor.propTypes = {
 };
 RichEditor.defaultProps = {
   features: defaultFeatures,
-  autoCompletionLinks: []
+  autoCompletionLinks: [],
+  locale: 'en'
 };

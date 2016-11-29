@@ -73,6 +73,7 @@
     "write-file-webpack-plugin": "3.3.0"
   },
   "dependencies": {
+    "@opuscapita/i18n": "^1.0.2-SNAPSHOT.20161128T202255.143Z",
     "@opuscapita/react-ui-autocompletes": "1.0.1",
     "@opuscapita/react-ui-buttons": "1.0.1",
     "@opuscapita/react-ui-overlays": "1.0.3",

@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
 import ShortcutContainer from '../ShortcutContainer';
 import FakeInputAutocomplete from '@opuscapita/react-ui-autocompletes/lib/FakeInputAutocomplete';
+import translations from './translations';
+let getTranslation = (locale, message) => translations[locale][message];
 
 export default
 class RichEditorLinkInputForm extends Component {
@@ -68,11 +70,12 @@ class RichEditorLinkInputForm extends Component {
     let {
       autoCompletionLinks,
       defaultUrl, // eslint-disable-line no-unused-vars
+      locale,
       onHide,
       onSubmit, // eslint-disable-line no-unused-vars
       ...restProps
     } = this.props;
-    let t = this.props.translations;
+    let getMessage = (message) => getTranslation(locale, message);
 
     let { text, url } = this.state;
 
@@ -96,7 +99,7 @@ class RichEditorLinkInputForm extends Component {
           <div className={s.formInput}>
             <FakeInputAutocomplete
               ref={ref => (this._textInput = ref)}
-              placeholder={t.textInputPlaceholder}
+              placeholder={getMessage('typeText')}
               onChange={event => this.handleInputChange.call(this, 'text', event)}
               onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
               inputReactComponent={inputReactComponent}
@@ -107,7 +110,7 @@ class RichEditorLinkInputForm extends Component {
           </div>
           <div className={s.formInput}>
             <FakeInputAutocomplete
-              placeholder={t.urlInputPlaceholder}
+              placeholder={getMessage('typeUrl')}
               onChange={event => this.handleInputChange.call(this, 'url', event)}
               value={url}
               inputReactComponent={inputReactComponent}
@@ -120,12 +123,12 @@ class RichEditorLinkInputForm extends Component {
         <div className={s.buttonsBlock}>
           <div className={s.applyButton}>
             <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)} type="button">
-              {t.applyButton}
+              {getMessage('apply')}
             </button>
           </div>
           <div className={s.cancelButton}>
             <button className="btn btn-default" onClick={onHide} type="button">
-              {t.cancelButton}
+              {getMessage('cancel')}
             </button>
           </div>
         </div>
@@ -139,26 +142,16 @@ RichEditorLinkInputForm.propTypes = {
     text: PropTypes.string,
     url: PropTypes.string
   })),
-  translations: PropTypes.shape({
-    applyButton: PropTypes.string,
-    cancelButton: PropTypes.string,
-    urlInputPlaceholder: PropTypes.string,
-    textInputPlaceholder: PropTypes.string
-  }),
   defaultUrl: PropTypes.string,
   onHide: PropTypes.func,
   onSubmit: PropTypes.func,
+  locale: PropTypes.string,
   text: PropTypes.string,
   url: PropTypes.string
 };
 RichEditorLinkInputForm.defaultProps = {
   autoCompletionLinks: [],
-  translations: {
-    applyButton: 'Apply',
-    cancelButton: 'Cancel',
-    urlInputPlaceholder: 'Paste or type a link',
-    textInputPlaceholder: 'Insert a text',
-  },
+  locale: 'en',
   defaultUrl: 'http://',
   onHide: () => {},
   onSubmit: (text, link) => {},

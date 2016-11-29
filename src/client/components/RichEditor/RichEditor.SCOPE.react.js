@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { showroomScopeDecorator } from '@opuscapita/showroom-client';
+import Button from '@opuscapita/react-ui-buttons/lib/Button'
 
 function requireAll(requireContext) {
   return requireContext.keys().map(key => ({
@@ -17,9 +18,7 @@ class RichEditorSCOPE extends Component {
     this.state = {
       icons,
       containerStyle: {},
-      options: {
-        isPaper: false
-      }
+      locale: 'de'
     };
   }
 
@@ -27,15 +26,23 @@ class RichEditorSCOPE extends Component {
     return this.state.icons.find(icon => icon.name === name).svg
   }
 
-  toggleOption(name) {
-    this.setState({
-      options: { ...this.state.options, [name]: !this.state.options[name] }
-    });
+  toggleLocale() {
+    let prevLocale = this.state.locale;
+    let nextLocale = prevLocale === 'en' ? 'de' : 'en';
+    this.setState({ locale: nextLocale });
   }
 
   render() {
     return (
       <div>
+        <div style={{ marginBottom: '12px' }}>
+          <Button
+            label="Toggle locale"
+            onClick={this.toggleLocale.bind(this)}
+            bgColor="#e70"
+            color="#fff"
+          />
+        </div>
         <div>
           {this._renderChildren()}
         </div>
