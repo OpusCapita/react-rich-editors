@@ -161,8 +161,6 @@ class RichEditor extends Component {
       </Motion>
     )
 
-    // console.log(editorState.toJS());
-
     return (
       <div className={`${s.richEditor} form-control`} style={{ padding: '0', boxShadow: 'none' }}>
         <div className={s.toolbar}>
