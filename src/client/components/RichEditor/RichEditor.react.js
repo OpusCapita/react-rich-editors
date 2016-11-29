@@ -73,7 +73,7 @@ class RichEditor extends Component {
       this._linkInputForm.clearValues();
       this._linkInputForm.setText(text);
       this._linkInputForm.setUrl(url);
-      this._linkInputFocusTimeout = setTimeout(() => this._linkInputForm.focus(), 800);
+      this._linkInputFocusTimeout = setTimeout(() => this._linkInputForm.focus(), 280);
     }
   }
 
