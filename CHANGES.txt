@@ -1,4 +1,10 @@
 
+Release 1.0.2 Tue Nov 29 2016 13:26:34 GMT+0300 (Belarus Standard Time)
+=======================================================
+
+ - Fixed editorState update on link confirm. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 13:25:57 2016 +0300)
+ - Updating to a version to  1.0.2 (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 12:05:06 2016 +0300)
+
 Release 1.0.1 Tue Nov 29 2016 12:04:35 GMT+0300 (Belarus Standard Time)
 =======================================================
 
