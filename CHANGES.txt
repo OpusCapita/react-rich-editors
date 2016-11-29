@@ -1,4 +1,11 @@
 
+Release 1.0.5 Tue Nov 29 2016 19:13:48 GMT+0300 (Belarus Standard Time)
+=======================================================
+
+ - Fixed 'LinkInputForm' view in IE. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 19:13:00 2016 +0300)
+ - Improved animation. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 19:07:14 2016 +0300)
+ - Updating to a version to  1.0.5 (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 18:52:23 2016 +0300)
+
 Release 1.0.4 Tue Nov 29 2016 18:51:42 GMT+0300 (Belarus Standard Time)
 =======================================================
 
