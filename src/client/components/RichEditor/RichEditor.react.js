@@ -132,7 +132,7 @@ class RichEditor extends Component {
     }
     let prevEditorState = this.state.editorState;
     let nextEditorState = confirmLink(prevEditorState, selection, text, url);
-    return this.setState({ editorState: nextEditorState });
+    return this.onChange(nextEditorState);
   }
 
   render() {
@@ -160,6 +160,8 @@ class RichEditor extends Component {
       }}
       </Motion>
     )
+
+    // console.log(editorState.toJS());
 
     return (
       <div className={`${s.richEditor} form-control`} style={{ padding: '0', boxShadow: 'none' }}>

@@ -37,8 +37,7 @@ export function confirmLink(editorState, selection, nextText, url) {
   let contentState = editorState.getCurrentContent();
   let entityKey = Entity.create('LINK', 'MUTABLE', { url });
   let nextEditorState = RichUtils.toggleLink(editorState, selection, entityKey);
-  nextEditorState = replaceTextOfSelection(nextEditorState, selection, nextText, null, entityKey);
-  return nextEditorState;
+  return replaceTextOfSelection(nextEditorState, selection, nextText, null, entityKey);
 }
 
 export function removeLink(editorState, selection) {
