@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { showroomScopeDecorator } from 'jcatalog-showroom';
+import { showroomScopeDecorator } from '@opuscapita/showroom-client';
 
 @showroomScopeDecorator
 class EmailRichEditorSCOPE extends Component {
