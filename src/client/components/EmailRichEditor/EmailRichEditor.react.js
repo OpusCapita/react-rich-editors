@@ -68,7 +68,8 @@ EmailRichEditor.propTypes = {
   features: PropTypes.array,
   onChange: PropTypes.func,
   value: PropTypes.string,
-  locale: PropTypes.string
+  locale: PropTypes.string,
+  placeholder: PropTypes.string
 };
 EmailRichEditor.defaultProps = {
   features: [],
