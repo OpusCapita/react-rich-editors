@@ -3,7 +3,7 @@ import { findLinkEntities } from './link';
 import { CompositeDecorator, Entity } from 'draft-js';
 
 let Link = (props) => {
-  let url = props.entityKey ? Entity.get(props.entityKey).getData().href : '';
+  let url = props.entityKey ? Entity.get(props.entityKey).getData().url : '';
   return (
     <a href={url} title={url} style={{ textDecoration: 'underiline' }}>
       {props.children}
