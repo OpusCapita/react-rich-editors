@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
 import ShortcutContainer from '../ShortcutContainer';
-import FakeInputAutocomplete from 'jcatalog-react-ui-autocompletes/lib/FakeInputAutocomplete';
+import FakeInputAutocomplete from '@opuscapita/react-ui-autocompletes/lib/FakeInputAutocomplete';
 
 export default
 class RichEditorLinkInputForm extends Component {
