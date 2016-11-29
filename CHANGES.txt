@@ -1,4 +1,12 @@
 
+Release 1.0.3 Tue Nov 29 2016 18:39:35 GMT+0300 (Belarus Standard Time)
+=======================================================
+
+ - Fixed link view. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 18:38:55 2016 +0300)
+ - Fixed display of 'LinkInputForm' inputs. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 18:37:04 2016 +0300)
+ - Removed console.log. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 13:29:06 2016 +0300)
+ - Updating to a version to  1.0.3 (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 13:26:51 2016 +0300)
+
 Release 1.0.2 Tue Nov 29 2016 13:26:34 GMT+0300 (Belarus Standard Time)
 =======================================================
 
