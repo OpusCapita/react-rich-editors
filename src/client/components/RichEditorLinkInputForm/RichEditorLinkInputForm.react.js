@@ -105,7 +105,6 @@ class RichEditorLinkInputForm extends Component {
               maxSuggessionsHeight={maxSuggessionsHeight}
             />
           </div>
-          <div className={s.gap}/>
           <div className={s.formInput}>
             <FakeInputAutocomplete
               placeholder={t.urlInputPlaceholder}
@@ -118,14 +117,12 @@ class RichEditorLinkInputForm extends Component {
             />
           </div>
         </div>
-        <div className={s.gap}/>
         <div className={s.buttonsBlock}>
           <div className={s.applyButton}>
             <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)} type="button">
               {t.applyButton}
             </button>
           </div>
-          <div className={s.gapSmall}/>
           <div className={s.cancelButton}>
             <button className="btn btn-default" onClick={onHide} type="button">
               {t.cancelButton}
