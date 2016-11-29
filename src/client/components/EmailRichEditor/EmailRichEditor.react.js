@@ -67,9 +67,11 @@ class EmailRichEditor extends Component {
 EmailRichEditor.propTypes = {
   features: PropTypes.array,
   onChange: PropTypes.func,
-  value: PropTypes.string
+  value: PropTypes.string,
+  locale: PropTypes.string
 };
 EmailRichEditor.defaultProps = {
   features: [],
-  value: ''
+  value: '',
+  locale: 'en'
 };
