@@ -193,7 +193,6 @@ RichEditor.propTypes = {
   locale: PropTypes.string,
   placeholder: PropTypes.string,
   autoCompletionLinks: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.string,
     text: PropTypes.string,
     url: PropTypes.string
   }))

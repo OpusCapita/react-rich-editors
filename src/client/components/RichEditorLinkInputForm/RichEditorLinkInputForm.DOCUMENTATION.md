@@ -1,7 +1,6 @@
 ### Synopsis
 
-RichEditorLinkInputForm is 
-*Write here a short introduction and/or overview that explains **what** component is.*
+RichEditorLinkInputForm
 
 ### Props Reference
 
@@ -26,9 +25,8 @@ RichEditorLinkInputForm is
 ```
 
 ### Contributors
-*Write here contributor names/contacts*
 
-[GIT REPOSITORY](http://buildserver.jcatalog.com/gitweb/?p=js-react-application-generator.git)
+Kirill Volkovich
 
 ### Component Name
 
