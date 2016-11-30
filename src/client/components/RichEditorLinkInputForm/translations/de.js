@@ -4,7 +4,7 @@ export default {
   linkLabel: 'Link',
   textPlaceholder: 'Geben Sie einen Text ein',
   linkPlaceholder: 'Geben Sie einen Link ein',
-  applyButton: 'Übernehmen',
-  cancelButton: 'Stornieren',
+  applyButton: 'Anwenden',
+  cancelButton: 'Abbrechen',
   placeholder: 'Stornieren'
 };

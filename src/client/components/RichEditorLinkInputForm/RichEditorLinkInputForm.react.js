@@ -97,30 +97,34 @@ class RichEditorLinkInputForm extends Component {
       >
         <div className={s.form}>
           <h5 className={s.header}>{getMessage('header')}</h5>
-          <div className={s.formInput}>
+          <div className={s.formInputGroup}>
             <label className={s.formLabel}>{getMessage('textLabel')}</label>
-            <FakeInputAutocomplete
-              ref={ref => (this._textInput = ref)}
-              placeholder={getMessage('textPlaceholder')}
-              onChange={event => this.handleInputChange.call(this, 'text', event)}
-              onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
-              inputReactComponent={inputReactComponent}
-              items={textsAutocomplete}
-              value={text}
-              maxSuggessionsHeight={maxSuggessionsHeight}
-            />
+            <div className={s.formInput}>
+              <FakeInputAutocomplete
+                ref={ref => (this._textInput = ref)}
+                placeholder={getMessage('textPlaceholder')}
+                onChange={event => this.handleInputChange.call(this, 'text', event)}
+                onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
+                inputReactComponent={inputReactComponent}
+                items={textsAutocomplete}
+                value={text}
+                maxSuggessionsHeight={maxSuggessionsHeight}
+              />
+            </div>
           </div>
-          <div className={s.formInput}>
+          <div className={s.formInputGroup}>
             <label className={s.formLabel}>{getMessage('linkLabel')}</label>
-            <FakeInputAutocomplete
-              placeholder={getMessage('linkPlaceholder')}
-              onChange={event => this.handleInputChange.call(this, 'url', event)}
-              value={url}
-              inputReactComponent={inputReactComponent}
-              onBlur={this.handleUrlInputBlur.bind(this)}
-              onFocus={this.handleUrlInputFocus.bind(this)}
-              maxSuggessionsHeight={maxSuggessionsHeight}
-            />
+            <div className={s.formInput}>
+              <FakeInputAutocomplete
+                placeholder={getMessage('linkPlaceholder')}
+                onChange={event => this.handleInputChange.call(this, 'url', event)}
+                value={url}
+                inputReactComponent={inputReactComponent}
+                onBlur={this.handleUrlInputBlur.bind(this)}
+                onFocus={this.handleUrlInputFocus.bind(this)}
+                maxSuggessionsHeight={maxSuggessionsHeight}
+              />
+            </div>
           </div>
         </div>
         <div className={s.buttonsBlock}>
