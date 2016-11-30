@@ -96,10 +96,12 @@ class RichEditorLinkInputForm extends Component {
         { ...restProps }
       >
         <div className={s.form}>
+          <h5 className={s.header}>{getMessage('header')}</h5>
           <div className={s.formInput}>
+            <label className={s.formLabel}>{getMessage('textLabel')}</label>
             <FakeInputAutocomplete
               ref={ref => (this._textInput = ref)}
-              placeholder={getMessage('typeText')}
+              placeholder={getMessage('textPlaceholder')}
               onChange={event => this.handleInputChange.call(this, 'text', event)}
               onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
               inputReactComponent={inputReactComponent}
@@ -109,8 +111,9 @@ class RichEditorLinkInputForm extends Component {
             />
           </div>
           <div className={s.formInput}>
+            <label className={s.formLabel}>{getMessage('linkLabel')}</label>
             <FakeInputAutocomplete
-              placeholder={getMessage('typeUrl')}
+              placeholder={getMessage('linkPlaceholder')}
               onChange={event => this.handleInputChange.call(this, 'url', event)}
               value={url}
               inputReactComponent={inputReactComponent}
@@ -123,12 +126,12 @@ class RichEditorLinkInputForm extends Component {
         <div className={s.buttonsBlock}>
           <div className={s.applyButton}>
             <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)} type="button">
-              {getMessage('apply')}
+              {getMessage('applyButton')}
             </button>
           </div>
           <div className={s.cancelButton}>
             <button className="btn btn-default" onClick={onHide} type="button">
-              {getMessage('cancel')}
+              {getMessage('cancelButton')}
             </button>
           </div>
         </div>
