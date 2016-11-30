@@ -74,7 +74,7 @@
   },
   "dependencies": {
     "@opuscapita/react-ui-autocompletes": "1.0.1",
-    "@opuscapita/react-ui-buttons": "1.0.1",
+    "@opuscapita/react-ui-buttons": "1.0.5",
     "@opuscapita/react-ui-overlays": "1.0.3",
     "@opuscapita/ui-svg-icons": "1.0.0",
     "draft-js": "0.9.1",

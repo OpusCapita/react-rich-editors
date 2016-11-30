@@ -1,7 +1,6 @@
 ### Synopsis
 
-RichEditorToolbar is 
-*Write here a short introduction and/or overview that explains **what** component is.*
+RichEditorToolbar
 
 ### Code Example
 
@@ -19,12 +18,11 @@ RichEditorToolbar is
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
-| demoProp | string | Write a description of the property |
+| featuresTranslations | object | Example: `{ en: { bold: 'Bold', italic: 'Italic' }, de: { bold: 'Fett', italic: 'Kursiv' } }` |
+| locale | string | en/de/etc. |
 
 ### Contributors
-*Write here contributor names/contacts*
-
-[GIT REPOSITORY](http://buildserver.jcatalog.com/gitweb/?p=js-react-application-generator.git)
+Kirill Volkovich
 
 ### Component Name
 

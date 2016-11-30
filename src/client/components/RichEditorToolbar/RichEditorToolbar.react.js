@@ -9,9 +9,14 @@ class RichEditorToolbar extends Component {
       activeFeatures,
       editorState, // eslint-disable-line no-unused-vars
       features,
+      featuresTranslations,
+      locale,
       onGetFeatureHandler,
+      restrictorNode,
       ...restProps
     } = this.props;
+
+    let getMessage = (message) => featuresTranslations[locale][message];
 
     return (
       <div className={s.richEditorToolbar} { ...restProps }>
@@ -20,7 +25,9 @@ class RichEditorToolbar extends Component {
             <TitledButton
               isActive={Boolean(activeFeatures.find(activeFeature => activeFeature === feature.id))}
               onClick={() => onGetFeatureHandler(feature)}
+              restrictorNode={restrictorNode}
               svg={feature.svg}
+              title={getMessage(feature.id)}
               svgSize="24px"
               color="#333"
               bgColor="rgba(255, 255, 255, 0)"
@@ -44,10 +51,15 @@ RichEditorToolbar.propTypes = {
     svg: PropTypes.string,
     type: PropTypes.string
   })),
+  featuresTranslations: PropTypes.object,
+  locale: PropTypes.string,
+  restrictorNode: PropTypes.object,
   onGetFeatureHandler: PropTypes.func
 };
 
 RichEditorToolbar.defaultProps = {
   activeFeatures: [],
-  features: []
+  features: [],
+  featuresTranslations: {},
+  locale: 'en'
 };

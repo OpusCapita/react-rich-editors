@@ -14,6 +14,7 @@ import defaultFeatures from './lib/default-features';
 import featureTypes from './lib/feature-types';
 import decorator from './lib/decorator';
 import translations from './translations';
+import defaultFeaturesTranslations from './lib/features-translations';
 let getTranslation = (locale, message) => translations[locale][message];
 
 export default
@@ -138,8 +139,8 @@ class RichEditor extends Component {
   }
 
   render() {
-    let { features, locale, placeholder, autoCompletionLinks } = this.props;
-    let { editorState, isShowLinkInputForm } = this.state;
+    let { features, featuresTranslations, locale, placeholder, autoCompletionLinks } = this.props;
+    let { editorState, isShowLinkInputForm, richEditorRef } = this.state;
 
     let activeFeatures = this.getActiveFeatures(features);
     let getMessage = (message) => getTranslation(locale, message);
@@ -162,14 +163,21 @@ class RichEditor extends Component {
     );
 
     return (
-      <div className={`${s.richEditor} form-control`} style={{ padding: '0', boxShadow: 'none' }}>
+      <div
+        className={`${s.richEditor} form-control`}
+        ref={ref => !this.state.richEditorRef && this.setState({ richEditorRef: ref })}
+        style={{ padding: '0', boxShadow: 'none' }}
+      >
         <div className={s.toolbar}>
           <RichEditorToolbar
             activeFeatures={activeFeatures}
-            features={features}
-            onGetFeatureHandler={this.getFeatureHandler.bind(this)}
             editorState={editorState}
+            features={features}
+            featuresTranslations={featuresTranslations}
             isPromptOpened={false}
+            locale={locale}
+            restrictorNode={richEditorRef}
+            onGetFeatureHandler={this.getFeatureHandler.bind(this)}
           />
         </div>
         <div className={s.textArea} onClick={this.focus.bind(this)}>
@@ -189,6 +197,7 @@ class RichEditor extends Component {
 RichEditor.propTypes = {
   autoFocus: PropTypes.bool,
   features: PropTypes.array,
+  featuresTranslations: PropTypes.object,
   onChange: PropTypes.func,
   locale: PropTypes.string,
   placeholder: PropTypes.string,
@@ -199,6 +208,7 @@ RichEditor.propTypes = {
 };
 RichEditor.defaultProps = {
   features: defaultFeatures,
+  featuresTranslations: defaultFeaturesTranslations,
   autoCompletionLinks: [],
   locale: 'en'
 };
