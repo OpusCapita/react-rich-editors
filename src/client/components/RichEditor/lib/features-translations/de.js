@@ -1,5 +1,5 @@
 export default {
-  ['bold']: 'Afasdfasd fFett gedruckt',
+  ['bold']: 'Fett gedruckt',
   ['italic']: 'Kursiv',
   ['underline']: 'Unterstreichen',
   ['list']: 'Liste',
