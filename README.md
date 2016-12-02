@@ -30,7 +30,7 @@ import { RichEditor } from '@opuscapita/react-rich-editors/lib/RichEditor';
 
 Run **demo** or wait for a global [Showroom](https://github.com/OpusCapitaBES/js-react-showroom) demo installation with most of react components and their documentation.
 
-## Grails integration
+## Grails integration check
 
 ```
 npm install
