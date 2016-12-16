@@ -7,7 +7,7 @@ import morgan from "morgan";
 import "./logger";
 
 let componentsRoot = path.resolve(__dirname, '../client/components');
-require('@opuscapita/showroom-server').makeLocalScan(componentsRoot);
+require('opuscapita-showroom-server').makeLocalScan(componentsRoot);
 
 // create express app
 const app = express();

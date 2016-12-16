@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { showroomScopeDecorator } from '@opuscapita/showroom-client';
-import Button from '@opuscapita/react-ui-buttons/lib/Button';
+import { showroomScopeDecorator } from 'opuscapita-showroom-client';
+import Button from 'opuscapita-react-ui-buttons/lib/Button';
 import keycode from 'keycode';
 
 @showroomScopeDecorator

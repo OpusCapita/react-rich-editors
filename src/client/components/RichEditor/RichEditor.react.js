@@ -9,7 +9,7 @@ import { confirmLink, removeLink, getLinkUrl } from './lib/link';
 import { getPlainTextOfSelection } from './lib/selection';
 import RichEditorToolbar from '../RichEditorToolbar';
 import RichEditorLinkInputForm from '../RichEditorLinkInputForm';
-import SimpleModal from '@opuscapita/react-ui-overlays/lib/SimpleModal';
+import SimpleModal from 'opuscapita-react-ui-overlays/lib/SimpleModal';
 import defaultFeatures from './lib/default-features';
 import featureTypes from './lib/feature-types';
 import decorator from './lib/decorator';
