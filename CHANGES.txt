@@ -1,4 +1,22 @@
 
+Release 1.0.7 Fri Dec 16 2016 14:27:05 GMT+0300 (+03)
+=======================================================
+
+ - Updated 'opuscapita-npm-scripts' (kirillvolkovich <kirill.volkovich@jcatalog.com>, Fri Dec 16 13:56:36 2016 +0300)
+ - Removed odd file (kirillvolkovich <kirill.volkovich@jcatalog.com>, Fri Dec 16 13:53:40 2016 +0300)
+ - Package renamed '@opuscapita/react-rich-editors' => 'opuscapita-react-rich-editors' (kirillvolkovich <kirill.volkovich@jcatalog.com>, Fri Dec 16 13:33:20 2016 +0300)
+ - Fixed odd translation. (volkovich <Kirill.Volkovich@jcatalog.com>, Fri Dec 2 13:18:46 2016 +0300)
+ - Update README.md (Kirill Volkovich <kirill.volkovich@jcatalog.com>, Fri Dec 2 11:52:44 2016 +0300)
+ - Added labels for toolbar. (volkovich <Kirill.Volkovich@jCatalog.com>, Wed Nov 30 23:07:28 2016 +0300)
+ - Removed unused PropType. Cleaned up docs. (volkovich <Kirill.Volkovich@jCatalog.com>, Wed Nov 30 12:19:06 2016 +0300)
+ - Improved translation. Improved LinkInputFormLayout. (volkovich <Kirill.Volkovich@jCatalog.com>, Wed Nov 30 12:10:39 2016 +0300)
+ - Added header and labels to 'LinkInputForm'. Removed unused dependency. (volkovich <Kirill.Volkovich@jCatalog.com>, Wed Nov 30 11:23:53 2016 +0300)
+ - Update package.json (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Wed Nov 30 08:22:09 2016 +0300)
+ - Merge branch 'master' of https://github.com/OpusCapitaBES/js-react-rich-editors (cd5fa41 d64c517, volkovich <Kirill.Volkovich@jCatalog.com>)
+ - Update README.md (Kirill Volkovich <kirill.volkovich@jcatalog.com>, Tue Nov 29 22:50:21 2016 +0300)
+ - Fixed lint errors. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 22:44:52 2016 +0300)
+ - Updating to a version to  1.0.7 (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 22:43:04 2016 +0300)
+
 Release 1.0.6 Tue Nov 29 2016 22:40:51 GMT+0300 (Belarus Standard Time)
 =======================================================
 
