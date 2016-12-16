@@ -1689,15 +1689,9 @@ encoding@^0.1.11:
   dependencies:
     iconv-lite "~0.4.13"
 
-end-of-stream@1.0.0:
+end-of-stream@1.0.0, end-of-stream@^1.0.0:
   version "1.0.0"
   resolved "http://leon.scand:4873/end-of-stream/-/end-of-stream-1.0.0.tgz#d4596e702734a93e40e9af864319eabd99ff2f0e"
-  dependencies:
-    once "~1.3.0"
-
-end-of-stream@^1.0.0:
-  version "1.1.0"
-  resolved "http://leon.scand:4873/end-of-stream/-/end-of-stream-1.1.0.tgz#e9353258baa9108965efc41cb0ef8ade2f3cfb07"
   dependencies:
     once "~1.3.0"
 
@@ -3482,9 +3476,9 @@ optionator@^0.8.2:
     type-check "~0.3.2"
     wordwrap "~1.0.0"
 
-opuscapita-npm-scripts@1.0.5:
-  version "1.0.5"
-  resolved "http://leon.scand:4873/opuscapita-npm-scripts/-/opuscapita-npm-scripts-1.0.5.tgz#af26e5db5e2f4c04cdc34725ba3388f9d4103847"
+opuscapita-npm-scripts@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/opuscapita-npm-scripts/-/opuscapita-npm-scripts-1.0.6.tgz#5eeb541c307fc5aabe1c4761f473d124d57c1f3f"
   dependencies:
     archiver "0.14.2"
     commander "2.9.0"

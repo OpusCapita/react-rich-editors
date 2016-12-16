@@ -55,7 +55,7 @@
     "less-loader": "2.2.2",
     "morgan": "1.7.0",
     "nodemon": "1.9.1",
-    "opuscapita-npm-scripts": "1.0.5",
+    "opuscapita-npm-scripts": "1.0.6",
     "opuscapita-showroom-client": "1.0.10",
     "opuscapita-showroom-server": "1.0.10",
     "postcss-loader": "0.13.0",
