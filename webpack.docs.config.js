@@ -5,10 +5,7 @@ let config = require('./webpack.development.config.js');
 delete config.devtool;
 delete config.output.publicPath;
 delete config.watch;
-config.output = {
-  ...config.output,
-  path: path.resolve(__dirname, 'lib')
-};
+config.output = Object.assign({}, config.output, { path: path.resolve(__dirname, 'lib') });
 config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': '"production"'
