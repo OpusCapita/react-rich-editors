@@ -4,15 +4,15 @@
 
 ### Props Reference
 
-| Name                          | Type                  | Description                                                |
-| ------------------------------|:----------------------| -----------------------------------------------------------|
-| autoFocus | bool | Focus on `componentDidMount` |
-| features | arrayOf(object) | Map of configurable features. For more details see `RichEditor/lib/default-features` |
-| featuresTranslations | object | Example: `{ en: { bold: 'Bold', italic: 'Italic' }, de: { bold: 'Fett', italic: 'Kursiv' } }` |
-| onChange | func | Callback fired on editor content change. `(text, editorState) => {}`. [EditorState definition](https://facebook.github.io/draft-js/docs/api-reference-editor-state.html) |
-| locale | string | en/de/etc. |
-| placeholder | string | Default text if editor content is empty |
-| autoCompletionLinks | arrayOf(shape) | Links for auto completion. `[ { text: string, url: string }, ... ]` `text` values **must** be unique |
+| Name                           | Type                    | Description                                                                                                                                                              |
+| ------------------------------ | :---------------------- | -----------------------------------------------------------                                                                                                              |
+| autoFocus                      | bool                    | Focus on `componentDidMount`                                                                                                                                             |
+| features                       | arrayOf(object)         | Map of configurable features. For more details see `RichEditor/lib/default-features`                                                                                     |
+| featuresTranslations           | object                  | Example: `{ en: { bold: 'Bold', italic: 'Italic' }, de: { bold: 'Fett', italic: 'Kursiv' } }`                                                                            |
+| onChange                       | func                    | Callback fired on editor content change. `(text, editorState) => {}`. [EditorState definition](https://facebook.github.io/draft-js/docs/api-reference-editor-state.html) |
+| locale                         | string                  | en/de/etc.                                                                                                                                                               |
+| placeholder                    | string                  | Default text if editor content is empty                                                                                                                                  |
+| autoCompletionLinks            | arrayOf(shape)          | Links for auto completion. `[ { text: string, url: string }, ... ]` `text` values **must** be unique                                                                     |
 
 ### Code Example
 
@@ -21,17 +21,17 @@
   <RichEditor
     autoFocus={true}
     autoCompletionLinks={[
-      { text: 'PIM installation', url: 'http://pim.opuscapita.com' },
-      { text: 'PROV installation', url: 'http://prov.opuscapita.com' },
-      { text: 'DAM installation', url: 'http://dam.opuscapita.com' },
-      { text: 'SIM installation', url: 'http://sim.opuscapita.com' },
+      { text: 'TEST-1', url: 'http://test1.example.com' },
+      { text: 'TEST-2', url: 'http://test2.example.com' },
+      { text: 'TEST-3', url: 'http://test3.example.com' },
+      { text: 'TEST-4', url: 'http://test4.example.com' },
       
-      { text: 'PIM TEST installation', url: 'http://test.pim.opuscapita.com' },
-      { text: 'PROV TEST installation', url: 'http://test.prov.opuscapita.com' },
-      { text: 'DAM TEST installation', url: 'http://test.dam.opuscapita.com' },
-      { text: 'SIM TEST installation', url: 'http://test.sim.opuscapita.com' }
+      { text: 'PROD-1', url: 'http://prod1.example.com' },
+      { text: 'PROD-2', url: 'http://prod2.example.com' },
+      { text: 'PROD-3', url: 'http://prod3.example.com' },
+      { text: 'PROD-4', url: 'http://prod4.example.com' }
     ]}
-    locale={_scope.state.locale}
+    locale="de"
   />
 </div>
 ```

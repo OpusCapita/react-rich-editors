@@ -1644,6 +1644,15 @@ draft-js-export-html@0.5.1:
   dependencies:
     draft-js-utils "^0.1.5"
 
+draft-js-typeahead@^0.1.1:
+  version "0.1.1"
+  resolved "http://leon.scand:4873/draft-js-typeahead/-/draft-js-typeahead-0.1.1.tgz#eb52f156ecdd54a1818695a5fa5d28f4851acb82"
+  dependencies:
+    draft-js "^0.8.1"
+    immutable "^3.7.6"
+    react "^0.14.7"
+    react-dom "^0.14.7"
+
 draft-js-utils@^0.1.5:
   version "0.1.7"
   resolved "http://leon.scand:4873/draft-js-utils/-/draft-js-utils-0.1.7.tgz#e2b6927ca620edf1855a4bfc1cf1d21080a70f16"
@@ -1655,6 +1664,20 @@ draft-js@0.9.1:
     fbjs "^0.8.3"
     immutable "~3.7.4"
     object-assign "^4.1.0"
+
+draft-js@^0.8.1:
+  version "0.8.1"
+  resolved "http://leon.scand:4873/draft-js/-/draft-js-0.8.1.tgz#484256414c963dd1f5309700ddada10f2aa1f6ff"
+  dependencies:
+    fbjs "^0.8.3"
+    immutable "~3.7.4"
+    object-assign "^4.1.0"
+
+draftjs-md-converter@^0.1.4:
+  version "0.1.4"
+  resolved "http://leon.scand:4873/draftjs-md-converter/-/draftjs-md-converter-0.1.4.tgz#38d0d274740e31a18765a4e5ac07e63967fca4ad"
+  dependencies:
+    markdown-to-ast "^3.2.3"
 
 duplexer@~0.1.1:
   version "0.1.1"
@@ -2462,7 +2485,7 @@ image-size@~0.3.5:
   version "0.3.5"
   resolved "http://leon.scand:4873/image-size/-/image-size-0.3.5.tgz#83240eab2fb5b00b04aab8c74b0471e9cba7ad8c"
 
-immutable@3.8.1:
+immutable@3.8.1, immutable@^3.7.6:
   version "3.8.1"
   resolved "http://leon.scand:4873/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
@@ -3105,7 +3128,7 @@ markdown-table@^0.4.0:
   version "0.4.0"
   resolved "http://leon.scand:4873/markdown-table/-/markdown-table-0.4.0.tgz#890c2c1b3bfe83fb00e4129b8e4cfe645270f9d1"
 
-markdown-to-ast@3.4.0:
+markdown-to-ast@3.4.0, markdown-to-ast@^3.2.3:
   version "3.4.0"
   resolved "http://leon.scand:4873/markdown-to-ast/-/markdown-to-ast-3.4.0.tgz#0e2cba81390b0549a9153ec3b0d915b61c164be7"
   dependencies:
@@ -4051,7 +4074,7 @@ rc@^1.0.1, rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
-react-dom@0.14.8:
+react-dom@0.14.8, react-dom@^0.14.7:
   version "0.14.8"
   resolved "http://leon.scand:4873/react-dom/-/react-dom-0.14.8.tgz#0f1c547514263f771bd31814a739e5306575069e"
 
@@ -4062,7 +4085,7 @@ react-motion@0.4.5, react-motion@^0.4.5:
     performance-now "^0.2.0"
     raf "^3.1.0"
 
-react@0.14.8:
+react@0.14.8, react@^0.14.7:
   version "0.14.8"
   resolved "http://leon.scand:4873/react/-/react-0.14.8.tgz#078dfa454d4745bcc54a9726311c2bf272c23684"
   dependencies:
