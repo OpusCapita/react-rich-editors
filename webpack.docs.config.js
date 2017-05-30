@@ -1,5 +1,6 @@
 'use strict';
 const webpack = require('webpack');
+const path = require('path');
 
 let config = require('./webpack.development.config.js');
 delete config.devtool;
