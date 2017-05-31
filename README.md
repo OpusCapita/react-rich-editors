@@ -14,7 +14,7 @@ Package provide these public components:
 ## Usage
 
 ```js
-import { RichEditor } from '@opuscapita/react-rich-editors/lib/RichEditor';
+import RichEditor from 'opuscapita-react-rich-editors/lib/RichEditor';
 ...
 <RichEditor />
 ```
