@@ -11,6 +11,12 @@ Package provide these public components:
 * **RichEditor**
 * **EmailRichEditor**
 
+## Demo and documentation
+
+https://opuscapitabes.github.io/js-react-rich-editors
+
+> Demo powered by [opuscapita-react-showroom](https://github.com/OpusCapitaBES/js-react-showroom-client)
+
 ## Usage
 
 ```js
@@ -18,10 +24,6 @@ import RichEditor from 'opuscapita-react-rich-editors/lib/RichEditor';
 ...
 <RichEditor />
 ```
-
-## Demo and components documentation
-
-https://opuscapitabes.github.io/js-react-rich-editors
 
 ## API Reference
 
