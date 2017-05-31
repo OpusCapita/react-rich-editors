@@ -44,6 +44,8 @@ Then see [src/client/demo/grails-integration.html](./src/client/demo/grails-inte
 | :---: | :---: |
 | <img src="https://avatars.githubusercontent.com/u/24652543?v=3" width="100px;"/> | [**Kirill Volkovich**](https://github.com/kvolkovich-sc) |
 
+Contributing are welcome. We need YOU! :metal:
+
 ## License
 
 OpusCapita 2016
