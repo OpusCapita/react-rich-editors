@@ -19,12 +19,9 @@ import { RichEditor } from '@opuscapita/react-rich-editors/lib/RichEditor';
 <RichEditor />
 ```
 
-## Demo
+## Demo and components documentation
 
-* Ensure that you have access to private npm modules
-* Clone this repository
-* Run `npm install`
-* Run `npm start`
+https://opuscapitabes.github.io/js-react-rich-editors
 
 ## API Reference
 
