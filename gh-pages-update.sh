@@ -4,7 +4,7 @@ rm -rf .gh-pages-tmp lib  &&
 mkdir .gh-pages-tmp &&
 node node_modules/webpack/bin/webpack.js --config ./webpack.docs.config.js &&
 cp -R lib/* .gh-pages-tmp &&
-cp -R src/client/demoindex.html .gh-pages-tmp &&
+cp -R src/client/demo/index.html .gh-pages-tmp &&
 
 git checkout gh-pages &&
 git ls-files | grep -v -e "\(^\.gitignore$\|^\.gitattributes$\|^\.gh-pages-tmp$\)" | xargs rm -rf &&
