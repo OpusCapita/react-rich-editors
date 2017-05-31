@@ -38,8 +38,9 @@ Then see [src/client/demo/grails-integration.html](./src/client/demo/grails-inte
 
 ## Contributors
 
-* Kirill Volkovich kirill.volkovich@jcatalog.com
-* Alexey Sergeev alexey.sergeev@jcatalog.com
+| <img src="https://avatars.githubusercontent.com/u/24603787?v=3" width="100px;"/> | [**Alexey Sergeev**](https://github.com/asergeev-sc)     |
+| :---: | :---: |
+| <img src="https://avatars.githubusercontent.com/u/24652543?v=3" width="100px;"/> | [**Kirill Volkovich**](https://github.com/kvolkovich-sc) |
 
 ## License
 
