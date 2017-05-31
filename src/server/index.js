@@ -1,19 +1,20 @@
-import path from "path";
-import express from "express";
+'use strict';
+
+const compression = require('compression');
+const express = require('express');
+const fs = require('fs');
+const host = require('../../clientConfig').host;
+const path = require('path');
+const port = require('../../clientConfig').port;
+const webpack = require('webpack');
+const compiler = webpack(require('../../webpack.development.config'));
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 // initialize logging
 import "./logger";
 
-let componentsRoot = path.resolve(__dirname, '../client/components');
-require('opuscapita-showroom-server').makeLocalScan(componentsRoot);
-
-// create express app
 const app = express();
-
-const port = process.env.PORT ? process.env.PORT : 3000;
-const host = process.env.HOST ? process.env.HOST : 'localhost';
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev', {
@@ -23,24 +24,40 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-const webpack = require('webpack');
-const webpackMiddleware = require('webpack-dev-middleware');
-app.use(webpackMiddleware(webpack(require('../../webpack.development.config.js')), {
-  publicPath: '/static',
-  noInfo: true
-}));
-
 app.use(express.static(__dirname + '/../client/demo'));
-app.get(['/'], function(req, res) {
+
+let componentsRoot = path.resolve(__dirname, '../client/components');
+require('opuscapita-showroom-server').makeLocalScan(componentsRoot);
+
+const babelrc = fs.readFileSync(path.join(__dirname, '../../.babelrc'));
+let config;
+
+try {
+  config = JSON.parse(babelrc);
+} catch (err) {
+  console.error('==>     ERROR: Error parsing your .babelrc.');
+  console.error(err);
+}
+
+require('babel-register')(config);
+
+let serverOptions = {
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: true
+  },
+  headers: {'Access-Control-Allow-Origin': '*'},
+  stats: {colors: true}
+};
+
+app.use(compression());
+app.use(require('webpack-dev-middleware')(compiler, serverOptions));
+
+app.get('/', function(req, res) {
   res.sendFile(path.normalize(__dirname + '/../client/demo/index.html'));
 });
 
-// launch application
-app.listen(port, host, (err) => {
+app.listen(port, (err) => {
   if (err) {
     console.log(err);
   }

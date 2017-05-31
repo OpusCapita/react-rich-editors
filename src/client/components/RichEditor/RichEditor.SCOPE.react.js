@@ -23,7 +23,7 @@ class RichEditorSCOPE extends Component {
   }
 
   getIcon(name) {
-    return this.state.icons.find(icon => icon.name === name).svg
+    return this.state.icons.find(icon => icon.name === name).svg;
   }
 
   toggleLocale() {

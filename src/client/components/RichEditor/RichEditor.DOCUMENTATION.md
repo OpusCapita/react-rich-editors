@@ -31,7 +31,7 @@
       { text: 'PROD-3', url: 'http://prod3.example.com' },
       { text: 'PROD-4', url: 'http://prod4.example.com' }
     ]}
-    locale="de"
+    locale={_scope.state.locale}
   />
 </div>
 ```
