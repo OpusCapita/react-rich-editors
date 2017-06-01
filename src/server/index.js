@@ -27,7 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(express.static(__dirname + '/../client/demo'));
 
 let componentsRoot = path.resolve(__dirname, '../client/components');
-require('opuscapita-showroom-server').makeLocalScan(componentsRoot);
+require('@opuscapita/react-showroom-server').makeLocalScan(componentsRoot);
 
 const babelrc = fs.readFileSync(path.join(__dirname, '../../.babelrc'));
 let config;

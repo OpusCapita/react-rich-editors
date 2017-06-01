@@ -1,7 +1,7 @@
 {
   "name": "opuscapita-react-rich-editors",
   "version": "1.0.9",
-  "description": "Start write new project with no effort.",
+  "description": "JS React based rich editors based on Draft.js",
   "scripts": {
     "link-mode": "webpack --watch --config ./webpack.link.config.js",
     "lint": "eslint src/client",
@@ -28,6 +28,9 @@
     "url": "https://github.com/OpusCapitaBES/js-react-rich-editors"
   },
   "devDependencies": {
+    "@opuscapita/npm-scripts": "1.0.8",
+    "@opuscapita/react-showroom-client": "1.2.2",
+    "@opuscapita/react-showroom-server": "1.2.0",
     "autoprefixer": "6.4.1",
     "babel-cli": "6.5.1",
     "babel-core": "6.4.0",
@@ -55,9 +58,6 @@
     "less-loader": "2.2.2",
     "morgan": "1.7.0",
     "nodemon": "1.9.1",
-    "opuscapita-npm-scripts": "1.0.6",
-    "opuscapita-showroom-client": "1.0.10",
-    "opuscapita-showroom-server": "1.0.10",
     "postcss-loader": "0.13.0",
     "raw-loader": "0.5.1",
     "rimraf": "2.5.2",

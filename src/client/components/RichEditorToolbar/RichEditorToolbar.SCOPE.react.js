@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { showroomScopeDecorator } from 'opuscapita-showroom-client';
+import { showroomScopeDecorator } from '@opuscapita/react-showroom-client';
 
 function requireAll(requireContext) {
   return requireContext.keys().map(key => ({
