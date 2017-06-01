@@ -11,20 +11,19 @@ Package provide these public components:
 * **RichEditor**
 * **EmailRichEditor**
 
+## Demo and documentation
+
+https://opuscapitabes.github.io/js-react-rich-editors
+
+> Demo powered by [opuscapita-react-showroom](https://github.com/OpusCapitaBES/js-react-showroom-client)
+
 ## Usage
 
 ```js
-import { RichEditor } from '@opuscapita/react-rich-editors/lib/RichEditor';
+import RichEditor from 'opuscapita-react-rich-editors/lib/RichEditor';
 ...
 <RichEditor />
 ```
-
-## Demo
-
-* Ensure that you have access to private npm modules
-* Clone this repository
-* Run `npm install`
-* Run `npm start`
 
 ## API Reference
 
@@ -41,8 +40,11 @@ Then see [src/client/demo/grails-integration.html](./src/client/demo/grails-inte
 
 ## Contributors
 
-* Kirill Volkovich kirill.volkovich@jcatalog.com
-* Alexey Sergeev alexey.sergeev@jcatalog.com
+| <img src="https://avatars.githubusercontent.com/u/24603787?v=3" width="100px;"/> | [**Alexey Sergeev**](https://github.com/asergeev-sc)     |
+| :---: | :---: |
+| <img src="https://avatars.githubusercontent.com/u/24652543?v=3" width="100px;"/> | [**Kirill Volkovich**](https://github.com/kvolkovich-sc) |
+
+Contributing are welcome. We need YOU! :metal:
 
 ## License
 
