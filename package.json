@@ -1,5 +1,5 @@
 {
-  "name": "opuscapita-react-rich-editors",
+  "name": "@opuscapita/react-rich-editors",
   "version": "1.0.9",
   "description": "JS React based rich editors based on Draft.js",
   "scripts": {
@@ -21,12 +21,12 @@
     "lib",
     "README.md"
   ],
-  "license": "UNLICENSED",
-  "readme": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/OpusCapitaBES/js-react-rich-editors"
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
+  "repository": "OpusCapita/react-rich-editors",
   "devDependencies": {
     "@opuscapita/npm-scripts": "1.0.8",
     "@opuscapita/react-showroom-client": "1.2.2",
