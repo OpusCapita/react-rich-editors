@@ -15,7 +15,7 @@ Package provide these public components:
 
 https://opuscapitabes.github.io/js-react-rich-editors
 
-> Demo powered by [opuscapita-react-showroom](https://github.com/OpusCapitaBES/js-react-showroom-client)
+> Demo powered by [react-showroom](https://github.com/OpusCapita/react-showroom-client)
 
 ## Usage
 
