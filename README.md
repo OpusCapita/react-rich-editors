@@ -13,7 +13,7 @@ Package provide these public components:
 
 ## Demo and documentation
 
-https://opuscapitabes.github.io/js-react-rich-editors
+https://opuscapita.github.io/react-rich-editors
 
 > Demo powered by [react-showroom](https://github.com/OpusCapita/react-showroom-client)
 
