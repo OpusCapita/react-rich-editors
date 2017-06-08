@@ -69,9 +69,9 @@
     "write-file-webpack-plugin": "3.3.0"
   },
   "dependencies": {
-    "@opuscapita/react-autocompletes": "1.0.7",
-    "@opuscapita/react-buttons": "1.0.13",
-    "@opuscapita/react-overlays": "1.0.13",
+    "@opuscapita/react-autocompletes": "1.0.8",
+    "@opuscapita/react-buttons": "1.0.14",
+    "@opuscapita/react-overlays": "1.0.14",
     "@opuscapita/svg-icons": "1.0.6",
     "draft-js": "0.9.1",
     "draft-js-export-html": "0.5.1",
