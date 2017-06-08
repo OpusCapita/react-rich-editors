@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { showroomScopeDecorator } from '@opuscapita/react-showroom-client';
-import Button from 'opuscapita-react-ui-buttons/lib/Button'
+import Button from '@opuscapita/react-buttons/lib/Button'
 
 function requireAll(requireContext) {
   return requireContext.keys().map(key => ({
@@ -9,7 +9,7 @@ function requireAll(requireContext) {
   }));
 }
 
-let icons = requireAll(require.context('!!raw-loader!opuscapita-ui-svg-icons/lib', true, /.*\.svg$/));
+let icons = requireAll(require.context('!!raw-loader!@opuscapita/svg-icons/lib', true, /.*\.svg$/));
 
 @showroomScopeDecorator
 class RichEditorSCOPE extends Component {

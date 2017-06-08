@@ -69,16 +69,16 @@
     "write-file-webpack-plugin": "3.3.0"
   },
   "dependencies": {
+    "@opuscapita/react-autocompletes": "1.0.7",
+    "@opuscapita/react-buttons": "1.0.13",
+    "@opuscapita/react-overlays": "1.0.13",
+    "@opuscapita/svg-icons": "1.0.6",
     "draft-js": "0.9.1",
     "draft-js-export-html": "0.5.1",
     "draft-js-typeahead": "^0.1.1",
     "draftjs-md-converter": "^0.1.4",
     "immutable": "3.8.1",
     "keycode": "2.1.7",
-    "opuscapita-react-ui-autocompletes": "1.0.2",
-    "opuscapita-react-ui-buttons": "1.0.7",
-    "opuscapita-react-ui-overlays": "1.0.5",
-    "opuscapita-ui-svg-icons": "1.0.4",
     "react": "0.14.8",
     "react-dom": "0.14.8",
     "react-motion": "0.4.5"

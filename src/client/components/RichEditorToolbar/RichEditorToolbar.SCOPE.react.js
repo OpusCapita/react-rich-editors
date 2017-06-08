@@ -8,7 +8,7 @@ function requireAll(requireContext) {
   }));
 }
 
-let icons = requireAll(require.context('!!raw-loader!opuscapita-ui-svg-icons/lib', true, /.*\.svg$/));
+let icons = requireAll(require.context('!!raw-loader!@opuscapita/svg-icons/lib', true, /.*\.svg$/));
 
 @showroomScopeDecorator
 class RichEditorToolbarSCOPE extends Component {

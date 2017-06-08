@@ -18,6 +18,26 @@
     lodash "4.13.1"
     xml2js "0.4.16"
 
+"@opuscapita/react-autocompletes@1.0.7":
+  version "1.0.7"
+  resolved "http://leon.scand:4873/@opuscapita%2freact-autocompletes/-/react-autocompletes-1.0.7.tgz#aa2229b3336d314b5ac66d53531006745eda1ea6"
+  dependencies:
+    fuzzysearch "1.0.3"
+    react-motion "0.4.5"
+
+"@opuscapita/react-buttons@1.0.13":
+  version "1.0.13"
+  resolved "http://leon.scand:4873/@opuscapita%2freact-buttons/-/react-buttons-1.0.13.tgz#611077bac981584f1dd93d46a654ef2dbcce2cd2"
+  dependencies:
+    opuscapita-react-ui-overlays "1.0.11"
+    opuscapita-react-ui-svg "1.0.3"
+
+"@opuscapita/react-overlays@1.0.13":
+  version "1.0.13"
+  resolved "http://leon.scand:4873/@opuscapita%2freact-overlays/-/react-overlays-1.0.13.tgz#b07767be3b1def77376cba206997eb89d94e0062"
+  dependencies:
+    react-motion "^0.4.5"
+
 "@opuscapita/react-showroom-client@1.2.2":
   version "1.2.2"
   resolved "http://leon.scand:4873/@opuscapita%2freact-showroom-client/-/react-showroom-client-1.2.2.tgz#d68562d7ae2afd45416608d29bc825399dbd0e7f"
@@ -40,6 +60,10 @@
 "@opuscapita/react-ui-svg@1.0.0":
   version "1.0.0"
   resolved "http://leon.scand:4873/@opuscapita%2freact-ui-svg/-/react-ui-svg-1.0.0.tgz#564d547ad53721035b1147a46617b73273a86609"
+
+"@opuscapita/svg-icons@1.0.6":
+  version "1.0.6"
+  resolved "http://leon.scand:4873/@opuscapita%2fsvg-icons/-/svg-icons-1.0.6.tgz#caf33299dd82970ecd59eec42bdc52bc0cb0e9a3"
 
 Base64@~0.2.0:
   version "0.2.1"
@@ -3090,17 +3114,13 @@ lodash@4.13.1:
   version "4.13.1"
   resolved "http://leon.scand:4873/lodash/-/lodash-4.13.1.tgz#83e4b10913f48496d4d16fec4a560af2ee744b68"
 
-lodash@4.17.4:
+lodash@4.17.4, lodash@^4.0.0, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.1:
   version "4.17.4"
   resolved "http://leon.scand:4873/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 lodash@^3.10.0, lodash@^3.2.0:
   version "3.10.1"
   resolved "http://leon.scand:4873/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
-
-lodash@^4.0.0, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.1:
-  version "4.17.2"
-  resolved "http://leon.scand:4873/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
 
 lodash@~2.4.1:
   version "2.4.2"
@@ -3532,19 +3552,26 @@ optionator@^0.8.2:
     type-check "~0.3.2"
     wordwrap "~1.0.0"
 
-opuscapita-react-ui-autocompletes@1.0.2:
-  version "1.0.2"
-  resolved "http://leon.scand:4873/opuscapita-react-ui-autocompletes/-/opuscapita-react-ui-autocompletes-1.0.2.tgz#12c044d9db2f647fd4a25b5f0f5baacce28aad0d"
-  dependencies:
-    fuzzysearch "1.0.3"
-    react-motion "0.4.5"
-
 opuscapita-react-ui-buttons@1.0.7:
   version "1.0.7"
   resolved "http://leon.scand:4873/opuscapita-react-ui-buttons/-/opuscapita-react-ui-buttons-1.0.7.tgz#d685f16bf74934ecec892327c87cdb8c482ecf01"
   dependencies:
     opuscapita-react-ui-overlays "1.0.4"
     opuscapita-react-ui-svg "1.0.2"
+
+opuscapita-react-ui-buttons@1.0.9:
+  version "1.0.9"
+  resolved "http://leon.scand:4873/opuscapita-react-ui-buttons/-/opuscapita-react-ui-buttons-1.0.9.tgz#ae0ed668d8a08dd074862b5ee40b3f1c645ba633"
+  dependencies:
+    opuscapita-react-ui-overlays "1.0.8"
+    opuscapita-react-ui-svg "1.0.2"
+
+opuscapita-react-ui-overlays@1.0.11:
+  version "1.0.11"
+  resolved "http://leon.scand:4873/opuscapita-react-ui-overlays/-/opuscapita-react-ui-overlays-1.0.11.tgz#44a0fcd852e314ee3cf4386e77fcd8940f3c3623"
+  dependencies:
+    opuscapita-react-ui-buttons "1.0.9"
+    react-motion "^0.4.5"
 
 opuscapita-react-ui-overlays@1.0.4:
   version "1.0.4"
@@ -3553,9 +3580,9 @@ opuscapita-react-ui-overlays@1.0.4:
     "@opuscapita/react-ui-buttons" "1.0.1"
     react-motion "^0.4.5"
 
-opuscapita-react-ui-overlays@1.0.5:
-  version "1.0.5"
-  resolved "http://leon.scand:4873/opuscapita-react-ui-overlays/-/opuscapita-react-ui-overlays-1.0.5.tgz#c20cc0d82733d3e327facce400b19bed83b9a109"
+opuscapita-react-ui-overlays@1.0.8:
+  version "1.0.8"
+  resolved "http://leon.scand:4873/opuscapita-react-ui-overlays/-/opuscapita-react-ui-overlays-1.0.8.tgz#234bd7a464ef25437e2f015bb04fa4ca7078028b"
   dependencies:
     opuscapita-react-ui-buttons "1.0.7"
     react-motion "^0.4.5"
@@ -3564,9 +3591,9 @@ opuscapita-react-ui-svg@1.0.2:
   version "1.0.2"
   resolved "http://leon.scand:4873/opuscapita-react-ui-svg/-/opuscapita-react-ui-svg-1.0.2.tgz#8b95c6b0719dfbb04914f9ce05f67e7d624f895d"
 
-opuscapita-ui-svg-icons@1.0.4:
-  version "1.0.4"
-  resolved "http://leon.scand:4873/opuscapita-ui-svg-icons/-/opuscapita-ui-svg-icons-1.0.4.tgz#948b3611363ddf205e3881dc0bc53f8d6ee4191a"
+opuscapita-react-ui-svg@1.0.3:
+  version "1.0.3"
+  resolved "http://leon.scand:4873/opuscapita-react-ui-svg/-/opuscapita-react-ui-svg-1.0.3.tgz#85e47af2d32b80242ad3f7d678283c9360de3ead"
 
 os-browserify@~0.1.2:
   version "0.1.2"
@@ -4380,13 +4407,13 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.2.8, rimraf@~2.5.1, rimraf@~2.5.4:
+rimraf@2, rimraf@~2.5.1, rimraf@~2.5.4:
   version "2.5.4"
   resolved "http://leon.scand:4873/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
     glob "^7.0.5"
 
-rimraf@2.5.2:
+rimraf@2.5.2, rimraf@^2.2.8:
   version "2.5.2"
   resolved "http://leon.scand:4873/rimraf/-/rimraf-2.5.2.tgz#62ba947fa4c0b4363839aefecd4f0fbad6059726"
   dependencies:
