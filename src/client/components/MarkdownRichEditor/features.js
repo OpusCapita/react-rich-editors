@@ -17,14 +17,14 @@ module.exports = [
     svg: require('!!raw!@opuscapita/svg-icons/lib/format_italic.svg'),
     hotKeys: []
   },
-  {
-    id: 'underline',
-    label: 'Underline',
-    style: 'UNDERLINE',
-    type: types.INLINE_STYLE,
-    svg: require('!!raw!@opuscapita/svg-icons/lib/format_underlined.svg'),
-    hotKeys: []
-  },
+  // {
+  //   id: 'header',
+  //   label: 'Header',
+  //   style: 'HEADER',
+  //   type: types.BLOCK_TYPE,
+  //   svg: require('!!raw!@opuscapita/svg-icons/lib/format_underlined.svg'),
+  //   hotKeys: []
+  // },
   {
     id: 'list',
     label: 'List',

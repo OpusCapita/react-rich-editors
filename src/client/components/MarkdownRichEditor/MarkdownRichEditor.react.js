@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import s from './MarkdownRichEditor.module.less';
 import RichEditor from '../RichEditor';
 import markdownFeatures from './features';
-import { mdToDraftjs, draftjsToMd } from 'draftjs-md-converter';
+import { stateToMarkdown, Options as ImportOptions } from 'draft-js-export-markdown';
+import { stateFromMarkdown, Options as ExportOptions } from 'draft-js-import-markdown';
 import { TypeaheadEditor } from 'draft-js-typeahead';
 import { EditorState, ContentState, convertFromRaw, convertToRaw } from 'draft-js';
 import decorator from '../RichEditor/lib/decorator';
@@ -34,7 +35,7 @@ class MarkdownRichEditor extends Component {
 
   getMarkdown(editorState) {
     const content = editorState.getCurrentContent();
-    return draftjsToMd(convertToRaw(content));
+    return stateToMarkdown(content);
   }
 
   setEditorState(editorState) {
@@ -42,13 +43,13 @@ class MarkdownRichEditor extends Component {
   }
 
   setDefaultMarkdown(markdown) {
-    const rawData = mdToDraftjs(markdown);
-    const contentState = convertFromRaw(rawData);
+    const contentState = stateFromMarkdown(markdown);
     const nextEditorState = EditorState.createWithContent(contentState, decorator);
     this.setEditorState(nextEditorState);
   }
 
-  hanldeRichEditorMount() {
+  handleRichEditorMount() {
+    console.log('mount', this);
     this.setMarkdown();
   }
 
