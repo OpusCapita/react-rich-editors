@@ -5,7 +5,7 @@ import markdownFeatures from './features';
 import { stateToMarkdown, Options as ImportOptions } from 'draft-js-export-markdown';
 import { stateFromMarkdown, Options as ExportOptions } from 'draft-js-import-markdown';
 import { TypeaheadEditor } from 'draft-js-typeahead';
-import { EditorState, ContentState, convertFromRaw, convertToRaw } from 'draft-js';
+import { convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js';
 import decorator from '../RichEditor/lib/decorator';
 import translations from './translations';
 let getTranslation = (locale, message) => translations[locale][message];
@@ -15,6 +15,10 @@ class MarkdownRichEditor extends Component {
   componentDidMount() {
     let nextDefaultMarkdown = this.props.value;
     this.setDefaultMarkdown(nextDefaultMarkdown);
+  }
+
+  componentDidUpdate() {
+    this.formatMarkdownContent();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,6 +32,7 @@ class MarkdownRichEditor extends Component {
   handleChange(text, editorState) {
     let contentState = editorState.getCurrentContent();
     let markdown = this.getMarkdown(editorState);
+
     if (this.props.onChange) {
       this.props.onChange(markdown, editorState);
     }
@@ -51,6 +56,60 @@ class MarkdownRichEditor extends Component {
   handleRichEditorMount() {
     console.log('mount', this);
     this.setMarkdown();
+  }
+
+  formatMarkdownContent() {
+    if (this._richEditor) {
+      let editorState = this._richEditor.state.editorState;
+      let contentState = editorState.getCurrentContent();
+      let blocks = contentState.getBlocksAsArray();
+
+      //check if unformatted markdown is inserted
+      let hasUnformattedMarkdown = false;
+      //TODO add other RegExps to check unformatted markdown
+      let searchPattern = new RegExp('^(\\s)*#\\s+', 'm');
+      blocks.forEach((block) => {
+        let blockText = block.getText();
+        let blockType = block.getType();
+        if (blockType == 'unstyled' && searchPattern.test(blockText)) {
+          hasUnformattedMarkdown = true
+        }
+      });
+
+      if (hasUnformattedMarkdown) {
+        //convert to markdown
+        const markdown = stateToMarkdown(contentState);
+        //convert back to content state
+        const nextContentState = stateFromMarkdown(markdown);
+
+        //get current block index
+        let selectionState = editorState.getSelection();
+        let anchorKey = selectionState.getAnchorKey();
+        const currentBlockKey = editorState.getSelection().getStartKey();
+        const currentBlockIndex = editorState.getCurrentContent().getBlockMap()
+          .keySeq().findIndex(k => k === currentBlockKey);
+
+        //create new editor state
+        let nextEditorState = EditorState.createWithContent(nextContentState, decorator);
+
+        //get target block for selection
+        let targetBlockKey = nextEditorState.getCurrentContent().getBlockMap()
+          .keySeq().get(currentBlockIndex);
+        if (targetBlockKey === undefined) {
+          targetBlockKey = nextEditorState.getCurrentContent().getBlockMap().keySeq().last()
+        }
+        var targetContentBlock = nextEditorState.getCurrentContent().getBlockForKey(targetBlockKey);
+
+        //add selection
+        let newSelectionState = new SelectionState({
+          anchorKey: targetBlockKey,
+          anchorOffset: targetContentBlock.getLength(),
+        });
+        nextEditorState = EditorState.forceSelection(nextEditorState, newSelectionState);
+
+        this.setEditorState(nextEditorState);
+      }
+    }
   }
 
   render() {
