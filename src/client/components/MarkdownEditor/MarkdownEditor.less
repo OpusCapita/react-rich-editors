@@ -1,0 +1,30 @@
+.opuscapita_markdown-editor {
+  position: relative;
+  flex: 1;
+  display: flex;
+}
+.opuscapita_markdown-editor__bottom-line {
+    align-items: center;
+    border: none;
+    color: #000;
+    display: inline-flex;
+    opacity: .5;
+    overflow: visible;
+    position: absolute;
+    text-transform: uppercase;
+    bottom: 6px;
+    left: 6px;
+    z-index: 100;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    &:focus {
+      outline: none;
+    }
+}
+
+.opuscapita_markdown-editor__toggle-view-button {
+  font-size: 10px;
+  padding-right: 10px;
+}
