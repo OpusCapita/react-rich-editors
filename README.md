@@ -1,5 +1,10 @@
 # React - Rich editors
 
+[![CircleCI Status](https://circleci.com/gh/OpusCapita/react-rich-editors/tree/master.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/OpusCapita/react-rich-editors)
+![badge-npm-version](https://img.shields.io/npm/v/@opuscapita/react-rich-editors.svg)
+[![NPM Downloads](https://img.shields.io/npm/dm/@opuscapita/react-rich-editors.svg)](https://npmjs.org/package/@opuscapita/react-rich-editors)
+![badge-license](https://img.shields.io/github/license/OpusCapita/react-rich-editors.svg)
+
 ## Synopsis
 
 ![js-react-rich-editors-demo](https://raw.githubusercontent.com/OpusCapitaBES/js-react-rich-editors/2127f4e040595dd3d6093d7d0403b1e05f2d2983/demo.gif?token=AXgq_xcipv1suDpTjcbBd5yj4cBC0L7Zks5ZOR1BwA%3D%3D)
