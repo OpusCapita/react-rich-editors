@@ -7,7 +7,7 @@
 
 ## Synopsis
 
-![react-rich-editors-demo](demo.gif)
+![react-rich-editors-demo](https://raw.githubusercontent.com/OpusCapitaBES/js-react-rich-editors/2127f4e040595dd3d6093d7d0403b1e05f2d2983/demo.gif)
 
 React rich-editors-like components. Based on [draft-js](https://facebook.github.io/draft-js/).
 
