@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
 import ShortcutContainer from '../ShortcutContainer';
 import FakeInputAutocomplete from '@opuscapita/react-autocompletes/lib/FakeInputAutocomplete';
