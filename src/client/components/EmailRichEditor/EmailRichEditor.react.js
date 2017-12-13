@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import s from './EmailRichEditor.module.less';
 import RichEditor from '../RichEditor';
 import emailFeatures from './features';

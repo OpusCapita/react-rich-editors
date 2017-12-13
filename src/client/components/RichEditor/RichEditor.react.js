@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import s from './RichEditor.module.less';
 import {
   Editor,
@@ -174,7 +175,6 @@ class RichEditor extends Component {
             editorState={editorState}
             features={features}
             featuresTranslations={featuresTranslations}
-            isPromptOpened={false}
             locale={locale}
             restrictorNode={richEditorRef}
             onGetFeatureHandler={this.getFeatureHandler.bind(this)}
