@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
 import ShortcutContainer from '../ShortcutContainer';
-import FakeInputAutocomplete from '@opuscapita/react-autocompletes/lib/FakeInputAutocomplete';
+import { FakeInputAutocomplete } from '@opuscapita/react-autocompletes';
 import translations from './translations';
 let getTranslation = (locale, message) => translations[locale][message];
 
