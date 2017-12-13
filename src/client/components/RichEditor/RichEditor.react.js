@@ -175,7 +175,6 @@ class RichEditor extends Component {
             editorState={editorState}
             features={features}
             featuresTranslations={featuresTranslations}
-            isPromptOpened={false}
             locale={locale}
             restrictorNode={richEditorRef}
             onGetFeatureHandler={this.getFeatureHandler.bind(this)}

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
-import ShortcutContainer from '../ShortcutContainer';
-import { FakeInputAutocomplete } from '@opuscapita/react-autocompletes';
+import { SimpleAutocomplete } from '@opuscapita/react-autocompletes';
 import translations from './translations';
 let getTranslation = (locale, message) => translations[locale][message];
 
@@ -74,39 +73,31 @@ class RichEditorLinkInputForm extends Component {
       locale,
       onHide,
       onSubmit, // eslint-disable-line no-unused-vars
-      ...restProps
+      ...restProps // eslint-disable-line no-unused-vars
     } = this.props;
     let getMessage = (message) => getTranslation(locale, message);
 
     let { text, url } = this.state;
 
-    let keyMap = { hide: ['Escape'] }; // TODO
-    let handlers = { hide: this.props.onHide } // TODO
-
     let textsAutocomplete = autoCompletionLinks.map(
       autoCompletionLink => ({ key: autoCompletionLink.text, value: autoCompletionLink.text })
     );
     let maxSuggessionsHeight = 192;
-    let inputReactComponent = (props) => (<input { ...props } className="form-control" />);
+    let inputReactElement = (props) => (<input { ...props } className="form-control" />);
 
     return (
-      <ShortcutContainer
-        keyMap={keyMap}
-        handlers={handlers}
-        className={s.richEditorLinkInputForm}
-        { ...restProps }
-      >
+      <div>
         <div className={s.form}>
           <h5 className={s.header}>{getMessage('header')}</h5>
           <div className={s.formInputGroup}>
             <label className={s.formLabel}>{getMessage('textLabel')}</label>
             <div className={s.formInput}>
-              <FakeInputAutocomplete
+              <SimpleAutocomplete
                 ref={ref => (this._textInput = ref)}
                 placeholder={getMessage('textPlaceholder')}
                 onChange={event => this.handleInputChange.call(this, 'text', event)}
                 onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
-                inputReactComponent={inputReactComponent}
+                inputElement={inputReactElement}
                 items={textsAutocomplete}
                 value={text}
                 maxSuggessionsHeight={maxSuggessionsHeight}
@@ -116,11 +107,11 @@ class RichEditorLinkInputForm extends Component {
           <div className={s.formInputGroup}>
             <label className={s.formLabel}>{getMessage('linkLabel')}</label>
             <div className={s.formInput}>
-              <FakeInputAutocomplete
+              <SimpleAutocomplete
                 placeholder={getMessage('linkPlaceholder')}
                 onChange={event => this.handleInputChange.call(this, 'url', event)}
                 value={url}
-                inputReactComponent={inputReactComponent}
+                inputElement={inputReactElement}
                 onBlur={this.handleUrlInputBlur.bind(this)}
                 onFocus={this.handleUrlInputFocus.bind(this)}
                 maxSuggessionsHeight={maxSuggessionsHeight}
@@ -140,7 +131,7 @@ class RichEditorLinkInputForm extends Component {
             </button>
           </div>
         </div>
-      </ShortcutContainer>
+      </div>
     );
   }
 }
