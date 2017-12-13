@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import s from './RichEditorToolbar.module.less';
+import defaultFeaturesTranslations from '../RichEditor/lib/features-translations';
 import TitledButton from '@opuscapita/react-buttons/lib/TitledButton';
 
 export default
@@ -61,6 +62,6 @@ RichEditorToolbar.propTypes = {
 RichEditorToolbar.defaultProps = {
   activeFeatures: [],
   features: [],
-  featuresTranslations: {},
+  featuresTranslations: defaultFeaturesTranslations,
   locale: 'en'
 };
