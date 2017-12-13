@@ -1,4 +1,39 @@
 
+Release 2.0.0 Wed Dec 13 2017 14:54:49 GMT+0300 (+03)
+=======================================================
+
+ - Merge pull request #8 from OpusCapita/migration-react-16/#7
+    
+    Migration to React 16/#7 (cbc09c4 b93ab99, Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>)
+ - Change version (baliunov <baliunov@scand.com>, Wed Dec 13 14:45:48 2017 +0300)
+ - Fix bugs after migration (baliunov <baliunov@scand.com>, Wed Dec 13 14:44:52 2017 +0300)
+ - Merge branch 'master' into migration-react-16/#7 (9e1f00e cbc09c4, baliunov <baliunov@scand.com>)
+ - tmp commit (baliunov <baliunov@scand.com>, Wed Dec 13 13:08:47 2017 +0300)
+ - Merge branch 'master' of opuscapita.github.com:OpusCapitaBES/js-react-rich-editors (76be9fc 15cd851, Kirill Volkovich <kirill.volkovich@jcatalog.com>)
+ - Fix demo (Kirill Volkovich <kirill.volkovich@jcatalog.com>, Tue Dec 12 17:40:38 2017 +0300)
+ - Migrate to React 16 (baliunov <baliunov@scand.com>, Tue Dec 12 17:15:09 2017 +0300)
+ - Update README.md (Alexey Sergeev <asergeev-sc@users.noreply.github.com>, Fri Sep 1 12:27:50 2017 +0300)
+ - Delete yarn-error.log (Alexey Sergeev <asergeev-sc@users.noreply.github.com>, Thu Aug 31 22:53:54 2017 +0300)
+ - Update README.md (Alexey Sergeev <asergeev-sc@users.noreply.github.com>, Thu Aug 31 22:43:58 2017 +0300)
+ - Add CircleCI (baliunov <baliunov@scand.com>, Fri Jul 21 17:18:26 2017 +0300)
+ - Remove Markdown* components
+    
+    Development of markdown editor has been started here using draft.js
+    but now it implemented at https://github.com/OpusCapita/react-markdown
+    using slate.js (Kirill Volkovich <volkovich@scand.com>, Fri Jul 21 17:09:08 2017 +0300)
+ - Update gh-pages-update.sh (Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>, Wed Jul 12 15:04:32 2017 +0300)
+ - Add MarkdownEditor, PlainMarkdownEditor components (Kirill Volkovich <volkovich@scand.com>, Fri Jun 23 15:48:52 2017 +0300)
+ - Merge branch 'master' of opuscapita.github.com:OpusCapitaBES/js-react-rich-editors (93b1cc5 4615b57, Kirill Volkovich <volkovich@scand.com>)
+ - Changed markdown serializer (Kirill Volkovich <volkovich@scand.com>, Tue Jun 20 12:57:31 2017 +0300)
+ - Update README.md (Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>, Wed Jun 7 10:39:01 2017 +0300)
+ - Merge branch 'master' of opuscapita.github.com:OpusCapitaBES/js-react-rich-editors (cb2252a 0bc729d, Kirill Volkovich <volkovich@scand.com>)
+ - Add yarn files to .gitignore. Updated dependencies (Kirill Volkovich <volkovich@scand.com>, Thu Jun 8 16:19:57 2017 +0300)
+ - Update to scoped @opuscapita dependencies (Kirill Volkovich <volkovich@scand.com>, Thu Jun 8 09:07:53 2017 +0300)
+ - Update README.md (Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>, Wed Jun 7 10:39:01 2017 +0300)
+ - Updating to a version to  1.0.11 (Kirill Volkovich <volkovich@scand.com>, Thu Jun 1 12:48:43 2017 +0300)
+ - Update README.md (Kirill Volkovich <volkovich@scand.com>, Thu Jun 1 12:48:01 2017 +0300)
+ - Updating to a version to  1.0.10 (Kirill Volkovich <volkovich@scand.com>, Thu Jun 1 12:46:41 2017 +0300)
+
 Release 1.0.10 Thu Jun 01 2017 12:48:32 GMT+0300 (+03)
 =======================================================
 
