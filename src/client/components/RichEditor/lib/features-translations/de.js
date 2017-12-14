@@ -1,9 +1,9 @@
 export default {
-  ['bold']: 'Fett gedruckt',
+  ['bold']: 'Fett',
   ['italic']: 'Kursiv',
   ['underline']: 'Unterstreichen',
   ['list']: 'Liste',
-  ['numeric-list']: 'Numerischen liste',
+  ['numeric-list']: 'Nummerierte Liste',
   ['blockquote']: 'Block-Anführungszeichen',
   ['insert-link']: 'Link einfügen'
 };
