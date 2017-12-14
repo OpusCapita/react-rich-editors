@@ -74,9 +74,9 @@
   },
   "dependencies": {
     "@opuscapita/react-autocompletes": "3.0.0",
-    "@opuscapita/react-buttons": "1.0.14",
-    "@opuscapita/react-overlays": "1.0.14",
-    "@opuscapita/svg-icons": "1.0.6",
+    "@opuscapita/react-buttons": "4.0.1",
+    "@opuscapita/react-overlays": "3.0.0",
+    "@opuscapita/svg-icons": "1.1.1",
     "draft-js": "0.10.4",
     "draft-js-export-html": "1.2.0",
     "draft-js-export-markdown": "1.2.0",
@@ -87,8 +87,7 @@
     "prop-types": "15.6.0",
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "react-motion": "0.5.2",
-    "yarn": "^1.3.2"
+    "react-motion": "0.5.2"
   },
   "grails": {
     "resources": {

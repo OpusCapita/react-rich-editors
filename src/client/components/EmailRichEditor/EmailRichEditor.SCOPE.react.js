@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { showroomScopeDecorator } from '@opuscapita/react-showroom-client';
-import Button from '@opuscapita/react-buttons/lib/Button'
+import { Button } from '@opuscapita/react-buttons'
 
 @showroomScopeDecorator
 class EmailRichEditorSCOPE extends Component {
@@ -30,7 +30,6 @@ class EmailRichEditorSCOPE extends Component {
           <Button
             label="Toggle locale"
             onClick={this.toggleLocale.bind(this)}
-            bgColor="#e70"
             color="#fff"
           />
         </div>
