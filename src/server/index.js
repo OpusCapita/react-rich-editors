@@ -8,38 +8,24 @@ const path = require('path');
 const port = require('../../clientConfig').port;
 const webpack = require('webpack');
 const compiler = webpack(require('../../webpack.development.config'));
-import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
-import morgan from "morgan";
-// initialize logging
-import "./logger";
 
 const app = express();
-
-if (process.env.NODE_ENV !== 'production') {
-  app.use(morgan('dev', {
-    stream: {
-      write: console.log
-    }
-  }));
-}
 
 app.use(express.static(__dirname + '/../client/demo'));
 
 let componentsRoot = path.resolve(__dirname, '../client/components');
 require('@opuscapita/react-showroom-server').makeLocalScan(componentsRoot);
 
-const babelrc = fs.readFileSync(path.join(__dirname, '../../.babelrc'));
-let config;
+let babelConfig;
 
 try {
-  config = JSON.parse(babelrc);
+  babelConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '../../.babelrc')));
 } catch (err) {
   console.error('==>     ERROR: Error parsing your .babelrc.');
   console.error(err);
 }
 
-require('babel-register')(config);
+require('babel-register')(babelConfig);
 
 let serverOptions = {
   watchOptions: {
@@ -47,6 +33,7 @@ let serverOptions = {
     poll: true
   },
   headers: {'Access-Control-Allow-Origin': '*'},
+  noInfo: true,
   stats: {colors: true}
 };
 

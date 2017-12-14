@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const packageVersion = require('./package.json').version;
+const PACKAGE_VERSION = require('./package.json').version;
 
 module.exports = {
   entry: {
@@ -16,14 +16,7 @@ module.exports = {
   bail: true,
 
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false,
-        drop_console: true,
-        unsafe: true
-      }
-    }),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': '"production"'
@@ -32,21 +25,11 @@ module.exports = {
   ],
 
   resolve: {
-    root: path.join(__dirname, "node_modules"),
-    fallback: [path.join(__dirname, "node_modules")],
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.json', '.jsx', '.js']
+    modules: ['node_modules'],
+    extensions: ['.json', '.js']
   },
-
   resolveLoader: {
-    fallback: [path.join(__dirname, "node_modules")],
-    modulesDirectories: ['node_modules'],
-    moduleTemplates: ['*-loader', '*'],
-    extensions: ['', '.js']
-  },
-
-  postcss: function () {
-    return [require('autoprefixer')];
+    moduleExtensions: ['-loader']
   },
 
   module: {
@@ -65,18 +48,42 @@ module.exports = {
       },
       {
         test: /\.(css|less)$/,
-        loader: `style!css?modules&importLoaders=1&` +
-        `localIdentName=[name]__[local]__${packageVersion}_[hash:base64:3]` +
-        `!postcss-loader!less?sourceMap`,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: `[name]__[local]__${PACKAGE_VERSION}_[hash:base64:3]`,
+              modules: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: path.resolve(__dirname, './postcss.config.js')
+            }
+          },
+          { loader: 'less-loader', options: { sourceMap: true } }
+        ],
         include: /\.module\.(css|less)$/
       },
       {
         test: /\.(css|less)$/,
-        loader: `style!css!postcss-loader!less?sourceMap`,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: path.resolve(__dirname, './postcss.config.js')
+            }
+          },
+          { loader: 'less-loader', options: { sourceMap: true } }
+        ],
         exclude: /\.module\.(css|less)$/
       },
       {
-        test: /.jsx?$/,
+        test: /.js$/,
         loader: 'babel-loader',
         include: [
           path.join(__dirname, 'src/client'),
