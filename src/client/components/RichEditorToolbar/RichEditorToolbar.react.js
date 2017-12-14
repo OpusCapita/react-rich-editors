@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import s from './RichEditorToolbar.module.less';
 import defaultFeaturesTranslations from '../RichEditor/lib/features-translations';
-import TitledButton from '@opuscapita/react-buttons/lib/TitledButton';
+import { TitledButton } from '@opuscapita/react-buttons';
 
 export default
 class RichEditorToolbar extends Component {
@@ -30,9 +30,7 @@ class RichEditorToolbar extends Component {
               restrictorNode={restrictorNode}
               svg={feature.svg}
               title={getMessage(feature.id)}
-              svgSize="24px"
               color="#333"
-              bgColor="rgba(255, 255, 255, 0)"
             />
           </div>
         ))}
