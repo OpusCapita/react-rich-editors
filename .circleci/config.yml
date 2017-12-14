@@ -47,8 +47,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: build-gh-pages
+          command: ./scripts/gh-pages/build.sh
+
+      - run:
           name: deploy-gh-pages
-          command: ./gh-pages-update.sh
+          command: ./scripts/gh-pages/deploy.sh .gh-pages-tmp
 
 
 workflows:
