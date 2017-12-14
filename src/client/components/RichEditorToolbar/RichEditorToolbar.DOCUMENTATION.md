@@ -11,6 +11,7 @@ RichEditorToolbar
     { name: 'Italic', svg: _scope.getIcon('format_italic') },
     { name: 'Underlined', svg: _scope.getIcon('format_underlined') }
   ]}
+  onGetFeatureHandler={() => console.log(`click`)}
 />
 ```
 

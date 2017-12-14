@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "@opuscapita/react-autocompletes": "3.0.0",
-    "@opuscapita/react-buttons": "4.0.0",
+    "@opuscapita/react-buttons": "4.0.1",
     "@opuscapita/react-overlays": "3.0.0",
     "@opuscapita/svg-icons": "1.1.1",
     "draft-js": "0.10.4",
