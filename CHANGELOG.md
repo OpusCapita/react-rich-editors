@@ -1,3 +1,17 @@
+## [v2.0.3](https://github.com/OpusCapitaBES/js-react-rich-editors/compare/v2.0.2...v2.0.3) (Thu, 14 Dec 2017 15:58:56 GMT)
+ - fix bugs when using with React 16 (#9) (Aleksandr Baliunov <abaliunov-sc@users.noreply.github.com>, c7d6f3a)
+ - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, 8f64302)
+ - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, bbf7371)
+ - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, 215f060)
+ - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, 10c79a9)
+ - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, 54b2d1f)
+ - Marking shell scripts as executable (Alexey Sergeev <sab@scand.com>, 7cc523c)
+ - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, 7ba097a)
+ - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, 99847d2)
+ - Fixing static site publishing [skip ci] (Alexey Sergeev <sab@scand.com>, 953471e)
+ - Marking shell scripts as executable (Alexey Sergeev <sab@scand.com>, de8ebb6)
+ - Removing CHANGES.txt [skip ci] (Alexey Sergeev <sab@scand.com>, d5af17f)
+
 ## [v2.0.2](Thu, 14 Dec 2017 13:25:11 GMT)
  - Updating to the latest dependencies (Alexey Sergeev <sab@scand.com>, 87443ee)
 
