@@ -2,14 +2,14 @@
 const webpack = require('webpack');
 const path = require('path');
 const PACKAGE_VERSION = require('./package.json').version;
-const PACKAGE_NAME = require('../../package.json').name;
+const PACKAGE_NAME = require('./package.json').name;
 
 module.exports = {
   entry: {
     'main': './src/client/demo/index.js'
   },
   output: {
-    path: path.resolve(__dirname, '../../.gh-pages-tmp'),
+    path: path.resolve(__dirname, './.gh-pages-tmp'),
     filename: `index.js`,
     library: `${PACKAGE_NAME}`,
     libraryTarget: 'umd'
