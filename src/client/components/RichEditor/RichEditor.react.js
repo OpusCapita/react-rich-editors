@@ -16,7 +16,13 @@ import featureTypes from './lib/feature-types';
 import decorator from './lib/decorator';
 import translations from './translations';
 import defaultFeaturesTranslations from './lib/features-translations';
-let getTranslation = (locale, message) => translations[locale][message];
+let getTranslation = (locale, fallbackLocale, message) => {
+  if (translations[locale] !== undefined) {
+    return translations[locale][message];
+  } else {
+    return translations[fallbackLocale][message]
+  }
+};
 
 export default
 class RichEditor extends Component {
@@ -140,11 +146,11 @@ class RichEditor extends Component {
   }
 
   render() {
-    let { features, featuresTranslations, locale, placeholder, autoCompletionLinks } = this.props;
+    let { features, featuresTranslations, locale, fallbackLocale, placeholder, autoCompletionLinks } = this.props;
     let { editorState, isShowLinkInputForm, richEditorRef } = this.state;
 
     let activeFeatures = this.getActiveFeatures(features);
-    let getMessage = (message) => getTranslation(locale, message);
+    let getMessage = (message) => getTranslation(locale, fallbackLocale, message);
 
     let linkInputForm = (
       <SimpleModal
@@ -157,6 +163,7 @@ class RichEditor extends Component {
             onHide={() => this.toggleShowLinkInputForm.call(this, false)}
             onSubmit={(text, url) => this.handleLinkChange.call(this, editorState.getSelection(), text, url)}
             locale={locale}
+            fallbackLocale={fallbackLocale}
             autoCompletionLinks={autoCompletionLinks}
           />
         </div>
@@ -176,6 +183,7 @@ class RichEditor extends Component {
             features={features}
             featuresTranslations={featuresTranslations}
             locale={locale}
+            fallbackLocale={fallbackLocale}
             restrictorNode={richEditorRef}
             onGetFeatureHandler={this.getFeatureHandler.bind(this)}
           />
@@ -200,6 +208,7 @@ RichEditor.propTypes = {
   featuresTranslations: PropTypes.object,
   onChange: PropTypes.func,
   locale: PropTypes.string,
+  fallbackLocale: PropTypes.string,
   placeholder: PropTypes.string,
   autoCompletionLinks: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string,
@@ -210,5 +219,6 @@ RichEditor.defaultProps = {
   features: defaultFeatures,
   featuresTranslations: defaultFeaturesTranslations,
   autoCompletionLinks: [],
-  locale: 'en'
+  locale: 'en',
+  fallbackLocale: 'en'
 };

@@ -13,12 +13,19 @@ class RichEditorToolbar extends Component {
       features,
       featuresTranslations,
       locale,
+      fallbackLocale,
       onGetFeatureHandler,
       restrictorNode,
       ...restProps
     } = this.props;
 
-    let getMessage = (message) => featuresTranslations[locale][message];
+    let getMessage = (message) => {
+      if (featuresTranslations[locale] !== undefined) {
+        return featuresTranslations[locale][message];
+      } else {
+        return featuresTranslations[fallbackLocale][message]
+      }
+    }
 
     return (
       <div className={s.richEditorToolbar} { ...restProps }>
@@ -53,6 +60,7 @@ RichEditorToolbar.propTypes = {
   })),
   featuresTranslations: PropTypes.object,
   locale: PropTypes.string,
+  fallbackLocale: PropTypes.string,
   restrictorNode: PropTypes.object,
   onGetFeatureHandler: PropTypes.func
 };
@@ -61,5 +69,6 @@ RichEditorToolbar.defaultProps = {
   activeFeatures: [],
   features: [],
   featuresTranslations: defaultFeaturesTranslations,
-  locale: 'en'
+  locale: 'en',
+  fallbackLocale: 'en'
 };

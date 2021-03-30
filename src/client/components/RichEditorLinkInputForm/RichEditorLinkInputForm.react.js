@@ -3,7 +3,13 @@ import React, { Component } from 'react';
 import s from './RichEditorLinkInputForm.module.less';
 import { SimpleAutocomplete } from '@opuscapita/react-autocompletes';
 import translations from './translations';
-let getTranslation = (locale, message) => translations[locale][message];
+let getTranslation = (locale, fallbackLocale, message) => {
+  if (translations[locale] !== undefined) {
+    return translations[locale][message];
+  } else {
+    return translations[fallbackLocale][message]
+  }
+};
 
 export default
 class RichEditorLinkInputForm extends Component {
@@ -71,11 +77,12 @@ class RichEditorLinkInputForm extends Component {
       autoCompletionLinks,
       defaultUrl, // eslint-disable-line no-unused-vars
       locale,
+      fallbackLocale,
       onHide,
       onSubmit, // eslint-disable-line no-unused-vars
       ...restProps // eslint-disable-line no-unused-vars
     } = this.props;
-    let getMessage = (message) => getTranslation(locale, message);
+    let getMessage = (message) => getTranslation(locale, fallbackLocale, message);
 
     let { text, url } = this.state;
 
@@ -145,12 +152,14 @@ RichEditorLinkInputForm.propTypes = {
   onHide: PropTypes.func,
   onSubmit: PropTypes.func,
   locale: PropTypes.string,
+  fallbackLocale: PropTypes.string,
   text: PropTypes.string,
   url: PropTypes.string
 };
 RichEditorLinkInputForm.defaultProps = {
   autoCompletionLinks: [],
   locale: 'en',
+  fallbackLocale: 'en',
   defaultUrl: 'http://',
   onHide: () => {},
   onSubmit: (text, link) => {},

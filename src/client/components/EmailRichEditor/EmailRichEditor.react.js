@@ -7,7 +7,13 @@ import { EditorState, ContentState, convertFromHTML } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
 import decorator from '../RichEditor/lib/decorator';
 import translations from './translations';
-let getTranslation = (locale, message) => translations[locale][message];
+let getTranslation = (locale, fallbackLocale, message) => {
+  if (translations[locale] !== undefined) {
+    return translations[locale][message];
+  } else {
+    return translations[fallbackLocale][message]
+  }
+};
 
 export default
 class EmailRichEditor extends Component {
@@ -49,7 +55,7 @@ class EmailRichEditor extends Component {
 
   render() {
     let { features, placeholder, ...restProps } = this.props;
-    let getMessage = (message) => getTranslation(this.props.locale, message);
+    let getMessage = (message) => getTranslation(this.props.locale, this.props.fallbackLocale, message);
 
     return (
       <div className={s.emailRichEditor}>
@@ -70,10 +76,12 @@ EmailRichEditor.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
   locale: PropTypes.string,
+  fallbackLocale: PropTypes.string,
   placeholder: PropTypes.string
 };
 EmailRichEditor.defaultProps = {
   features: [],
   value: '',
-  locale: 'en'
+  locale: 'en',
+  fallbackLocale: 'en'
 };

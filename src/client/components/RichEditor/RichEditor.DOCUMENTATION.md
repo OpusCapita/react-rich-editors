@@ -11,6 +11,7 @@
 | featuresTranslations           | object                  | Example: `{ en: { bold: 'Bold', italic: 'Italic' }, de: { bold: 'Fett', italic: 'Kursiv' } }`                                                                            |
 | onChange                       | func                    | Callback fired on editor content change. `(text, editorState) => {}`. [EditorState definition](https://facebook.github.io/draft-js/docs/api-reference-editor-state.html) |
 | locale                         | string                  | en/de/etc.                                                                                                                                                               |
+| fallbackLocale                 | string                  | en/de/etc.                                                                                                                                                               |
 | placeholder                    | string                  | Default text if editor content is empty                                                                                                                                  |
 | autoCompletionLinks            | arrayOf(shape)          | Links for auto completion. `[ { text: string, url: string }, ... ]` `text` values **must** be unique                                                                     |
 
@@ -32,6 +33,7 @@
       { text: 'PROD-4', url: 'http://prod4.example.com' }
     ]}
     locale={_scope.state.locale}
+    fallbackLocale='en'
   />
 </div>
 ```

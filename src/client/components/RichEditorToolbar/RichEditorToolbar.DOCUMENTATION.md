@@ -21,6 +21,7 @@ RichEditorToolbar
 | ------------------------------|:----------------------| -----------------------------------------------------------|
 | featuresTranslations | object | Example: `{ en: { bold: 'Bold', italic: 'Italic' }, de: { bold: 'Fett', italic: 'Kursiv' } }` |
 | locale | string | en/de/etc. |
+| fallbackLocale | string | en/de/etc. |
 
 ### Contributors
 Kirill Volkovich
