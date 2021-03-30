@@ -1,3 +1,15 @@
+
+[Release 2.0.4](https://github.com/OpusCapita/react-rich-editors/releases/tag/v2.0.4) Tue Mar 30 2021 16:27:19 GMT+0300 (MSK)
+=======================================================
+
+- Changed version (adanilov@scand.com adanilov@scand.com, 2021-03-30 16:23:43 +0300)
+- Fixed editor work under another locales different with 'en' and 'de' (adanilov@scand.com adanilov@scand.com, 2021-03-30 15:26:09 +0300)
+- Update CI image to opuscapita/minsk-core-ci:grails-2.4.4-jdk-8u192-nodejs-8.17.0-maven-3.3.9 [ci skip] (Egor Stambakio egor.stambakio@opuscapita.com, 2020-05-07 16:07:42 +0300)
+- Using docker image opuscapita/minsk-core-ci tag grails-2.4.4-jdk-8u131-nodejs-6.9.4-maven-3.3.9 [ci skip] (Alexey Sergeev alexey.sergeev@opuscapita.com, 2018-09-07 09:07:59 +0300)
+- Adding an issue template file [ci skip] (Egor Stambakio egor.stambakio@opuscapita.com, 2018-05-02 12:21:09 +0300)
+- Updated build config. (Dmitry Shienok dshienok@scand.com, 2018-02-21 17:22:30 +0300)
+- Update package.json (GitHub kvolkovich-sc@users.noreply.github.com, 2018-01-31 13:08:59 +0300)
+- Updating to a version to  2.0.4 (Kirill Volkovich kirill.volkovich@jcatalog.com, 2017-12-14 18:59:06 +0300)
 ## [v2.0.3](https://github.com/OpusCapitaBES/js-react-rich-editors/compare/v2.0.2...v2.0.3) (Thu, 14 Dec 2017 15:58:56 GMT)
  - fix bugs when using with React 16 (#9) (Aleksandr Baliunov <abaliunov-sc@users.noreply.github.com>, c7d6f3a)
  - Updating CircleCi build process (Alexey Sergeev <sab@scand.com>, 8f64302)
