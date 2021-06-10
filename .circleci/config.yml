@@ -133,8 +133,8 @@ workflows:
             - build
           filters:
             branches:
-              only:
-                - master
+              ignore:
+                - gh-pages
       - build_release:
           filters:
             tags:
