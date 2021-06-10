@@ -1,3 +1,3 @@
 export default {
-  placeholder: 'Type a text...'
+  'common.RichEditor.placeholder': 'Type a text...'
 };

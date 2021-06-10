@@ -95,13 +95,13 @@ class RichEditorLinkInputForm extends Component {
     return (
       <div>
         <div className={s.form}>
-          <h5 className={s.header}>{getMessage('header')}</h5>
+          <h5 className={s.header}>{getMessage('common.RichEditorLinkInputForm.header')}</h5>
           <div className={s.formInputGroup}>
-            <label className={s.formLabel}>{getMessage('textLabel')}</label>
+            <label className={s.formLabel}>{getMessage('common.RichEditorLinkInputForm.textLabel')}</label>
             <div className={s.formInput}>
               <SimpleAutocomplete
                 ref={ref => (this._textInput = ref)}
-                placeholder={getMessage('textPlaceholder')}
+                placeholder={getMessage('common.RichEditorLinkInputForm.textPlaceholder')}
                 onChange={event => this.handleInputChange.call(this, 'text', event)}
                 onSelect={(event, text) => this.handleAutoCompletionSelect.call(this, text)}
                 inputElement={inputReactElement}
@@ -112,10 +112,10 @@ class RichEditorLinkInputForm extends Component {
             </div>
           </div>
           <div className={s.formInputGroup}>
-            <label className={s.formLabel}>{getMessage('linkLabel')}</label>
+            <label className={s.formLabel}>{getMessage('common.RichEditorLinkInputForm.linkLabel')}</label>
             <div className={s.formInput}>
               <SimpleAutocomplete
-                placeholder={getMessage('linkPlaceholder')}
+                placeholder={getMessage('common.RichEditorLinkInputForm.linkPlaceholder')}
                 onChange={event => this.handleInputChange.call(this, 'url', event)}
                 value={url}
                 inputElement={inputReactElement}
@@ -129,12 +129,12 @@ class RichEditorLinkInputForm extends Component {
         <div className={s.buttonsBlock}>
           <div className={s.applyButton}>
             <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)} type="button">
-              {getMessage('applyButton')}
+              {getMessage('common.RichEditorLinkInputForm.applyButton')}
             </button>
           </div>
           <div className={s.cancelButton}>
             <button className="btn btn-default" onClick={onHide} type="button">
-              {getMessage('cancelButton')}
+              {getMessage('common.RichEditorLinkInputForm.cancelButton')}
             </button>
           </div>
         </div>

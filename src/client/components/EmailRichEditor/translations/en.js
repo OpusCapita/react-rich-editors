@@ -1,3 +1,3 @@
 export default {
-  placeholder: 'Type email...'
+  'common.EmailRichEditor.placeholder': 'Type email...'
 };
