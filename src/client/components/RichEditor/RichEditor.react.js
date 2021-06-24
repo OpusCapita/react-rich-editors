@@ -193,7 +193,7 @@ class RichEditor extends Component {
             ref={ref => (this._editor = ref)}
             editorState={editorState}
             onChange={this.onChange.bind(this)}
-            placeholder={typeof placeholder === 'undefined' ? getMessage('placeholder') : placeholder}
+            placeholder={typeof placeholder === 'undefined' ? getMessage('common.RichEditor.placeholder') : placeholder}
           />
         </div>
         {linkInputForm}

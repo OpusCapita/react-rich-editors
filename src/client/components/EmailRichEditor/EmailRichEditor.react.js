@@ -64,7 +64,8 @@ class EmailRichEditor extends Component {
           onChange={this.handleChange.bind(this)}
           features={[...emailFeatures, ...features]}
           ref={ref => (this._richEditor = ref)}
-          placeholder={typeof placeholder === 'undefined' ? getMessage('placeholder') : placeholder}
+          placeholder={typeof placeholder === 'undefined' ?
+            getMessage('common.EmailRichEditor.placeholder') : placeholder}
         />
       </div>
     );

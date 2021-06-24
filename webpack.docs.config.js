@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './.gh-pages-tmp'),
-    filename: `index.js`,
+    filename: `[name].bundle.js`,
     library: `${PACKAGE_NAME}`,
     libraryTarget: 'umd'
   },

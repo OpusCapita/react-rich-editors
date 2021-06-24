@@ -1,3 +1,3 @@
 export default {
-  placeholder: 'E-Mail schreiben ...'
+  'common.EmailRichEditor.placeholder': 'E-Mail schreiben ...'
 };
