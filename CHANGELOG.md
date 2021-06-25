@@ -1,4 +1,9 @@
 
+[Release 2.0.6](https://github.com/OpusCapita/react-rich-editors/releases/tag/v2.0.6) Fri Jun 25 2021 11:54:56 GMT+0300 (MSK)
+=======================================================
+
+- (EPROC-20549) Make translation keys unique ([#12](https://github.com/OpusCapita/react-rich-editors/issues/12)) (GitHub dsanko-sc@users.noreply.github.com, 2021-06-24 12:53:56 +0300)
+
 [Release 2.0.5](https://github.com/OpusCapita/react-rich-editors/releases/tag/v2.0.5) Thu Apr 01 2021 12:34:11 GMT+0300 (MSK)
 =======================================================
 
